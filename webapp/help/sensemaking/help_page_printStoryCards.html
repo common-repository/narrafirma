@@ -1,0 +1,237 @@
+<!DOCTYPE html> 
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>NarraFirma Help: Sensemaking: Print story cards</title>
+    <link rel="stylesheet" href="../../css/help.css">
+</head>
+<body>
+<div class="header">
+	<span class="narrafirma-name">NarraFirma&trade; Help</span>
+	<span class="breadcrumb">
+	<a href="../dashboard/help_page_dashboard.html">Home</a> &gt; 
+	<a href="help_page_sensemaking.html">Sensemaking</a> &gt; 
+	Print story cards
+	</span>
+	<span class="prev_next">
+		&lt;&lt;
+		<a href="help_page_sensemaking.html">Sensemaking</a> 
+		||
+		<a href="help_page_planSensemakingSessions.html">Plan sensemaking sessions</a> 
+		&gt;&gt; 
+	</span>
+</div>
+
+<div id="page-sensemaking-print-story-cards" class="page">
+
+<h1 class="page-title">Print story cards</h1>
+<div class="text">
+<p>
+On this page you can print story cards to be used in sensemaking sessions.
+</p>
+</div>
+
+<h2 class="heading">What to do here</h2>
+
+<div class="text">
+<p>
+Choose a story collection. Choose the questions whose answers you want to appear
+on the story cards. Then click the <b>Print Story Cards</b> button. 
+The cards will appear in a separate window, and you can print the page from your browser. 
+</p>
+</div>
+
+<h2 class="heading">Connections to other pages</h2>
+
+<div class="text">
+<p>
+	In order to print story cards, you must first create a
+	<a href="../collection/help_page_startStoryCollection.html">story collection</a> with an associated
+	<a href="../collection/help_page_designStoryForms.html">story form</a>, and you must 
+	collect, <a href="../collection/help_page_enterStories.html">enter, or import</a>
+	some stories into the collection.
+	Printing story cards makes no changes to your data. 
+	No other page of the application is affected by the use of this page.
+</p>
+</div>
+
+<h2 class="heading">Frequently-asked questions</h2>
+
+<h3 class="question">
+	I want to edit my generated story cards in a word processor. How can I do that?
+	</h3>
+	<div class="question-answer">
+	<p>You have several options. See which works best for you.</p>
+<ul>
+	<li>Select the entire generated web page, copy it, and paste it into a word processor that can read pasted-in HTML.</li>
+	<li>Print the page to a PDF file, then open the PDF file in something that can save the file in other formats (like Acrobat Pro).</li>
+	<li>Save the page to an HTML file, then:
+		<ul>
+			<li>Open it in a word processor that can read HTML files.</li>
+			<li>Convert it using a file converter on the internet.</li>
+			<li>Convert it using  <a href="https://pandoc.org/">Pandoc</a>.</li>
+		</ul>
+		</li>
+</ul>
+<p>For example, here's a simple copy-and-paste workflow for setting up story cards using Microsoft Word.</p>
+<ol>
+	<li>Open an empty Word document. In Page Settings, change it into landscape mode.</li>
+	<li>Print the story cards to an HTML page, using two columns and a slider-range-characters setting of 30.</li>
+	<li>Select the entire page, then copy it.</li>
+	<li>Paste it into your word document.</li>
+	<li>Select the entire pasted table.</li>
+	<li>Set the table borders to inside borders only.</li>
+	<li>In the table settings, set the spacing between cells to 0.1 inches.</li>
+	<li>In the cell settings, set the default left and right cell margins to 0.5 inches, and set the vertical alignment to top.</li>
+	<li>In the row settings, turn off "Allow row to break across pages."</li>
+	<li>If you want to, change the fonts, margins, and so on.</li>
+	<li>Print your cards (using thick paper if possible), then cut them apart using scissors or a paper cutter.</li>
+</ol>
+<p>Here's the same workflow using LibreOffice.</p>
+<ol>
+	<li>Open an empty LibreOffice Writer document. Change the Page Style to landscape.</li>
+	<li>Print the story cards to HTML, using two columns and a slider-rangel-characters setting of 30.</li>
+	<li>Select the entire page, then copy it.</li>
+	<li>Paste it into your LibreOffice document.</li>
+	<li>Select the entire pasted table.</li>
+	<li>Open the table properties.</li>
+	<li>In Text Flow:
+		<ul>
+			<li>Turn off "Allow row to break across pages and columns."</li>
+			<li>For Vertical alignment, choose top.</li>
+		</ul>
+		</li>
+	<li>In Borders:
+		<ul>
+			<li>Turn on all of the borders (inside and outside).</li>
+			<li>Set the left and right padding to 0.5 inches.</li>
+		</ul>
+	</li>
+	<li>If you want to, change the fonts, margins, and so on.</li>
+	<li>Print your cards (using thick paper if possible), then cut them apart using scissors or a paper cutter.</li>
+	</li>
+</ol>
+</div>
+
+<h3 class="question">
+Do I always have to print all of the stories in the story collection?
+</h3>
+<div class="question-answer">
+<p>
+	No. You can create a <b>filter</b> to print only some of the stories in a collection. 
+	Find the place on this page that says <b>If you want to filter the stories printed, enter your filter here.</b> 
+		In that box, enter the <i>exact</i> short name of a question (one that is in your story form), 
+		followed by <b>two equals signs</b> (==), 
+		followed by either a list of <i>exact</i> answers (separated by two equals signs), or
+		the low and high values of a numerical range (separated by two equals signs). 
+		</p>
+		<p>Some examples:</p>
+		<ul>
+			<li><b>Feel about == happy</b> will print only stories for which the question "Feel about" was answered "happy."</li>
+			<li><b>Location == Northern == Eastern</b> will print stories for which the "Location" question was answered with either "Northern" or "Eastern."</li>
+			<li><b>Story ended == 0 == 20</b> will print stories for which the scale question "Story ended" was answered with a number in the range from zero to twenty, inclusive.</li>
+			<li><b>Story length == [0 == 200)</b> will print stories with text lengths of 0 to 199 characters.</li>
+			<li><b>Story text == Company == company</b> will print stories in which the word "Company" appears (with either capitalization).</li>
+		</ul>
+	<p>Filtering stories for story cards works exactly like filtering stories for a catalysis report. 
+	You can read more about filters on the help page on <a href="../catalysis/help_page_configureCatalysisReport.html">configuring catalysis reports</a>.
+</p>
+</div>	
+
+
+<h3 class="question">
+	How do I use the <b>display lumping</b> feature?
+	</h3>
+	<div class="question-answer">
+	<p>
+		Display lumping is described on the help page for <a href="../catalysis/help_page_configureCatalysisReport.html">configuring your catalysis report</a>.
+		When you are printing story cards, you cannot use display lumping for any of the <i>generated</i> questions (Eliciting question, Number of stories told, Story length, Collection date). 
+		However, it works for all story and participant questions.
+	</p>
+	</div>
+
+<h3 class="question">
+Should I truncate stories?
+</h3>
+<div class="question-answer">
+<p>
+	Usually, the stories you collect will be relatively short, a paragraph or two. But once in a while, especially if you are collecting your stories online,
+	people will do strange things that create really long stories (like paste in whole files). 
+	This can wreak havoc with your ability to print nice clean story cards. So you can <b>set an upper limit
+	on story length</b>, with a note like "ask to see the full story" or something, so people know there is more to read. 
+	Try a few different lengths to see what works.
+</p>
+<p>
+	Note that NarraFirma gives you many options for this truncation, including printing only the first 100 characters of stories.
+	We can't actually think of any reason you'd want to do that! But who knows, you might need it for some special reason. 
+</p>
+</div>
+
+<h3 class="question">
+What's this about characters?
+</h3>
+<div class="question-answer">
+<p>
+Sliders (ranges) are represented in story cards as rows of characters (letters). 
+By default a slider looks like this:
+</p>
+<p>-----|--------------------------------------------</p>
+<p>
+If you like, you can change your sliders to use other characters and create displays like these:
+</p>
+<p>_____<>________________________________</p>
+<p>.....⥣.............................................</p>
+<p>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|||~~~~~~~~~~~~~~~~~~</p>
+<p>===========================[]===========================</p>
+<p>
+A few tips on changing slider characters:
+</p>
+<ul>
+	<li>Some characters are wider than others. If your before-the-button character 
+		is wider than your after-the-button character, your slider values may appear
+		different than they really are.
+	</li>
+	<li>White space is collapsed in HTML. This means you can use an empty space
+		for your after-the-button character, but you can't use it before the button.
+	</li>
+	<li>You can use emojis and other special characters, 
+		but whether your browser and printer will print
+		them correctly is anybody's guess. See what works for you.
+	</li>
+</ul>
+</p>
+</div>		
+
+<h3 class="question">
+How do I use the "Custom CSS" feature?
+</h3>
+<div class="question-answer">
+<p>
+Click <b>Print Story Cards</b>,
+then use your browser to <strong>inspect</strong> any element of your story cards you want to change. 
+(The usual way to do this is to right-click on a word or area and choose "Inspect" or "Inspect Element" from the popup menu that appears.
+If you don't see a popup menu or an "Inspect" menu item, look up how to inspect a web page element in the browser you are using.
+Sometimes you need to turn on "developer" mode to inspect page elements.)
+</p>
+<p>When you have successfully inspected the page element you want to change, you should see its CSS class. 
+	Most of the classes start with "narrafirma-story-card".
+</p>
+<p>Next go to the "custom CSS" field on the the "Print story cards" page and
+write a class selector (label) and declaration (set of formatting lines)
+for that class. You can use your browser's style editor to experiment with CSS until you get the styling you want. 
+</p>
+<p>
+For example, if you wanted all choice-question selections (drop-down list, checkboxes, radio buttons) to appear in blue, you would write a CSS statement
+like this:
+</p>
+<code>.narrafirma-story-card-select-selected, .narrafirma-story-card-checkboxes-selected, .narrafirma-story-card-radiobuttons-selected { color: blue; }</code>
+<p>
+Then print your story cards again to see your change. 
+(You can't just reload the story cards page; you have to click the "Print Story Cards" button again.)
+</p>
+</div>
+
+</div>
+
+</body>
+</html>

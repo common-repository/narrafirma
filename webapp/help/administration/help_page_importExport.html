@@ -1,0 +1,232 @@
+<!DOCTYPE html> 
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>NarraFirma Help: Administration: Import and export</title>
+    <link rel="stylesheet" href="../../css/help.css">
+</head>
+<body>
+<div class="header">
+	<span class="narrafirma-name">NarraFirma&trade; Help</span>
+	<span class="breadcrumb">
+	<a href="../dashboard/help_page_dashboard.html">Home</a> &gt; 
+	<a href="help_page_administration.html">Administration</a> &gt; 
+	Import and export
+	</span>
+</div>
+
+<div id="page-import-export" class="page">
+
+<h1 class="page-title">Import and export</h1>
+<div class="text">
+<p>
+On this page you can export your data for backup, or import to restore a project.
+</p>
+</div>
+
+<h2 class="heading">What to do here</h2>
+
+<div class="text">
+<p>
+Export the current project to a file for backup, reset (empty) the project, or import (restore) a previously exported project.
+</p>
+</div>
+
+<h2 class="heading">Connections to other pages</h2>
+
+<div class="text">
+<p>
+	This page has the potential to affect every other page in your project. Use it carefully.
+</p>
+</div>
+
+<h2 class="heading">Frequently-asked questions</h2>
+
+<h3 class="question">
+Should I export a project snapshot or a project history?
+</h3>
+<div class="question-answer">
+<p>
+As you work in NarraFirma, the software saves every action you take using "messages" that together form a history. 
+The purpose of such a "journaling" data storage system is to avoid data loss or corruption.
+Journaling also makes it easier to implement an undo system (which we have not yet implemented). 
+</p>
+<p>
+A project snapshot does not include these historical messages; it simply saves the current state of each element in the project.
+Because we haven't yet implemented any project-level undo functionality, it doesn't (yet) 
+make any difference if you save a project snapshot or a project history, but in the future
+it might matter.
+</p>
+<p>The one exception to that "it doesn't matter" statement is that, if you are exporting a project so you can reset it
+	and then restore it without disconnected stories (see below), you do need to choose the snapshot export.
+	The full-history export does not purge disconnected stories.
+</p>
+</div>
+		
+<h3 class="question">
+Why can't I save a project history without stories?
+</h3>
+<div class="question-answer">
+<p>
+A project history is a record of everything that took place since you started the project, including the addition of stories, changes to stories,
+and references to stories. It would be hard (and possibly damaging to a potential future undo system) to pull the story-related messages out of that history.
+</p>
+</div>
+
+<h3 class="question">
+Can I use import and export to copy a project?
+</h3>
+<div class="question-answer">
+<p>
+Yes. You can export the project (with or without collected stories) to a file, then create
+a new, empty project and import the data into it.
+</p>
+</div>
+
+<h3 class="question">
+Can I use the export function to move or copy a project from a WordPress to a Node.js version of NarraFirma (or vice versa)?
+</h3>
+<div class="question-answer">
+<p>
+Yes. The file format is independent of either back end. Just export the project, create a new (empty) project
+in your other installation of NarraFirma, and import the project into it.
+</p>
+</div>
+
+<h3 class="question">
+Can I import a project on top of an existing project, to restore it to a previous state?
+</h3>
+<div class="question-answer">
+<p>
+Don't do that. It will have unpredictable results. 
+You should always import a project file to an empty project.
+</p>
+</div>
+
+<h3 class="question">
+Is exporting the project the only way to save the stories I collected?
+</h3>
+<div class="question-answer">
+<p>
+No. You can export your stories, and your story forms, as CSV (spreadsheet) files from the
+<a href="../collection/help_page_exportStories.html">Export stories or story forms</a> page.
+</p>
+</div>
+
+<h3 class="question">
+What is the format of exported projects?
+</h3>
+<div class="question-answer">
+<p>
+Projects are exported in JSON format. You can open a project file in any browser or text editor and see the elements defined in it. 
+</p>
+</div>
+		
+<h3 class="question">
+Can I use the export function to translate the entire project to another piece of software, like a word processor?
+</h3>
+<div class="question-answer">
+<p>
+You could, but the better way is to go to the project-administration <a href="help_page_print.html">Print</a> page and print a project report. 
+</p>
+</div>
+
+<h3 class="question">
+If I have a problem with a project, can I export it, edit its JSON file using a text editor, then import it into an empty (or reset) project?
+</h3>
+<div class="question-answer">
+<p>
+Yes. Just be careful, and make a backup copy before you make any changes.
+</p>
+<p>Some tips for editing NarraFirma JSON files:</p>
+	<ul>
+		<li>Do not do this unless you are comfortable working with structured text data.</li>
+		<li>Make sure the file stays in plain text format with UTF-8 encoding.</li>
+		<li>Because this is a journaling data store, the same data fields may appear in multiple messages. 
+			Pay attention to the message timestamps.</li>
+		<li>In each addTriple message, "a" is the identifier of the thing being altered (a story form, a story, a question, etc).
+			The "b" field is the name of the property or field being set or changed. The "c" field is the data.
+			So a message that changes the color of a cat named Chloe to gray would read [a:Chloe, b:color, c:gray].	
+			If Chloe's color was later changed to brown, a later message would read [a:Chloe, b:color: c:brown].
+		</li>
+	</ul>
+</div>
+
+<h3 class="question">
+Why would I want to reset a project?
+</h3>
+<div class="question-answer">
+<p>For two reasons: to reload a project changed outside of your NarraFirma installation, or to remove disconnected stories.</p>
+<h5 class="heading">Changing a project outside of NarraFirma</h5>
+<p>You can export a NarraFirma project to a JSON file, 
+	change the JSON file using a text editor or another installation of NarraFirma, 
+	reset the project,
+	and import the changed JSON file into it. This will recreate the project, applying any changes you made to the JSON file.
+</p>
+<h5 class="heading">Removing disconnected stories</h5>
+<p>
+	To avoid accidentally losing stories, NarraFirma does not delete stories when you delete a story collection.
+	It just removes the container they were in. 
+	Most of the time this will not matter, since you might only delete one or two story collections, ever.
+</p>
+<p>
+However, if you've been importing the same data over and over to get it right,
+and in the process you've been creating and deleting <i>many</i> story collections,
+you could end up with many disconnected stories floating around in your project.
+Because NarraFirma loads everything into memory when it runs, 
+these extra stories can cause NarraFirma to run slower or even 
+run out of Javascript memory. This is not likely to be a problem if you have dozens of stories, or even a hundred.
+But if you have loaded several hundred stories several times, you might notice a slowdown.
+In that case, you can use the export-reset-import process to trim out the hidden stories and speed things up.</p>
+<ol>
+	<li>Choose "project snapshot with stories," then click "Export project". Save the JSON file.</li>
+	<li>Click the "Reset project" button to empty out the project.</li>
+	<li>In the "Import" section, choose "project snapshot (with or without stories), then click "Import project." Choose the JSON file you saved in step one.</li>
+</ol>
+<p>This will restore the project without the disconnected stories.</p>
+</div>
+
+<h3 class="question">
+After I reset a project, are the stories that were removed gone forever?
+</h3>
+<div class="question-answer">
+<p>No. You can still get them back. When you reset a project, NarraFirma makes a backup copy of it first. To restore the backup:</p>
+<ul>
+	<li>With WordPress:
+		<ul>
+			<li>Find a plugin that gives you access to your database tables. </li>
+			<li>Using the plugin, find the reset backup table. It should be called <pre>[your WordPress prefix]narrafirma_reset_backup_[date/time]</pre></li>
+			<li>Rename or delete the original, empty table (the one you reset). </li>
+			<li>Rename the reset backup table to the empty table's name.</li>
+		</ul>
+		</li>
+	<li>With node.js: 
+		<ul>
+			<li>Look in the server_data directory of your NarraFirma installation for the backup project folder.
+					It will have the name of the original folder, plus ".backup" and a date-time stamp.
+					Note that the folder may be hidden from view, since it starts with a period (full stop). 
+					Find an option that allows you to see hidden folders in your file system.
+			</li>
+			<li>Rename or delete your original, empty folder (the one you reset). </li>
+			<li>Rename the backup folder to the empty folder's name.</li>
+		</ul>
+		</li>
+	</li>
+</ul>
+<p>
+	You should now be able to start NarraFirma, access the restored backup project, recreate the deleted story collections,
+	and get the stories back.
+</p>
+</div>
+
+<h3 class="question">
+But what if I actually wanted to remove the stories forever?
+</h3>
+<div class="question-answer">
+<p>That's easily done. If you are using WordPress, delete the backup table. If you are using node.js, delete the backup folder.</p>
+</div>
+
+</div>
+
+</body>
+</html>

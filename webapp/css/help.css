@@ -1,0 +1,228 @@
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Base ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+body { 
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 1em;
+	text-align: left; 
+	background: white; 
+	margin: 0;
+}
+
+p {
+	margin-bottom: 1em;
+}
+
+a:link {
+	color: #1f3258;
+}
+
+a:visited {
+	color: #000000;
+}
+
+a:hover {
+	color: #b35d1b;
+}
+
+a:active {
+	color: #6e3000;
+}
+
+li {
+	margin: 0.2em 0 0.2 0;
+}
+
+table {
+	margin: 0.25em 1.5em 0.75em 1.5em;
+}
+
+table, th, td {
+	border: 1px solid rgb(0, 8, 123);
+	border-collapse: collapse;
+	padding: 0.25em;
+}
+
+table.noborders {
+	border: none;
+}
+
+td.noborders {
+	border: none;
+}
+
+td.borderbottom {
+	border: none;
+	border-bottom: 1px solid rgb(0, 8, 123);
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Navigation ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+.header { 
+	background: #b0d4d4;
+	margin: 0px;
+	padding: 20px; 
+	border-bottom: 4px solid #ffbb84;
+}
+	
+.narrafirma-name {
+	font-size: 1em;
+	color: black;
+	font-weight: bold;
+	padding: 0 2em 0 0;
+}
+
+.breadcrumb {
+	font-size: 0.9em;
+}
+
+.prev_next {
+	display: block;
+	float: right;
+	font-size: 0.9em;
+	text-align: right;
+}
+
+.page {
+}
+
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Page styles ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+h1.page-title {
+	font-size: 1.6em;
+	font-weight: bold;
+	margin: 0 0 0.1em 0;
+	padding: 0.5em 0.5em 0.25em 0.5em;
+}
+
+h2.heading {
+	background: #fdcaa0;
+	font-size: 1.4em;
+	font-weight: bold;
+	margin: 0.5em;
+	padding: 0.5em 0.5em 0.25em 0.5em;
+}
+
+h3.heading {
+	background: #fcdec5;
+	font-size: 1.3em;
+	font-weight: bold;
+	margin: 0.5em;
+	padding: 0.5em 0.5em 0.25em 0.5em;
+}
+
+h4.heading {
+	background: #b0d4d4;
+	font-size: 1.2em;
+	font-weight: bold;
+	margin: 0.5em 0 0.5em 0;
+	padding: 0.5em 0.5em 0.25em 0.5em;
+}
+
+h5.heading {
+	font-size: 1.1em;
+	font-style: normal;
+	font-weight: normal;
+	background: #ddf1f1;
+	margin: 0.5em 0 0.5em 0;
+	padding: 0.5em 0.5em 0.25em 0.5em;
+}
+
+.text {
+	background: inherit;
+	padding: 0 0.5em 0 0.5em;
+	margin: 0 0.5em 0 0.25em;
+}
+
+.img {
+	margin: 0.5em;
+}
+
+h3.question {
+	background: #c5d2eb;
+	font-weight: bold;
+	font-size: 1.0em;
+	padding: 0.75em 0.5em 0.5em 0.5em;
+	margin: 0.75em 0 0.5em 0.75em;
+}
+
+.question-answer {
+	background: inherit;
+	padding: 0 0.5em 0 0.5em;
+	margin: 0 0.5em 0 0.5em;
+}
+
+.narrafirma-pni-phases-image {
+	float: right;
+}
+f
+.book-quote {
+	margin: 0.5em 0 0.5em 0;
+	padding: 1em;
+	background: inherit;
+	border: 2px solid #c5d2eb;
+}
+
+.book-quote-heading {
+	font-weight: 700;
+}
+
+.outcomes_table {
+	border-collapse: collapse;
+}
+
+.outcomes_table th {
+	padding: 0.4em;
+	border: 1px solid #3e3739;
+	background: #a7a5a5;
+}
+
+.outcomes_table td {
+	padding: 0.4em;
+	border: 1px solid #3e3739;
+	background: white;
+}
+
+p.specialNote {
+	color: #b35d1b;
+}
+
+.glossary_definition {
+	font-weight: bold;
+	margin-left: 0.65em;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ old, maybe not used ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+.section {
+	font-style: italic;
+}
+#helpPageName {
+	font-weight: bold;
+	font: 180% verdana,tahoma;
+}
+
+.narrafirma-helpindex-backlink {
+	font: 60% verdana,tahoma;
+	margin-left: 4px;
+	margin-top: 10px;
+}
+
+.seeBookPages {
+	font: 80% verdana,tahoma;
+}
+
+.field {
+	font-style: normal;
+}
+
+.narrafirma-helpindex-sectionheader {
+	padding: 10px;
+	display: block;
+	border: 3px solid black;
+}
+
+a.narrafirma-helppageindex-panellink:link {
+	margin-left: 20px;
+}
+

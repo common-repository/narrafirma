@@ -1,0 +1,84 @@
+<!DOCTYPE html> 
+<html lang="en">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<!-- Next three lines from: http://stackoverflow.com/questions/12021794/android-browser-ignores-responsive-web-design -->
+<meta content="True" name="HandheldFriendly">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<meta name="viewport" content="width=device-width">
+
+<title>NarraFirma Survey</title>
+
+<link rel="stylesheet" href="css/survey.css">
+
+<script>
+if (console === undefined) console = {"log": function(){ } };
+window.onerror = function(msg, url, line) { alert(msg + "\n\nPlease send this error message to your site administrator. Additional information on the error can be found in your browser's development console."); }
+
+var require = {
+    baseUrl: '',
+    waitSeconds: 20,
+    paths: {
+        js: "js",
+        mithril: "lib/mithril/mithril"
+    }
+};
+</script>
+
+<script src="lib/require.min.js"></script>
+
+<script>
+    function calculateAjaxPath() {
+        if (!window["ajaxurl"]) {
+            const path = window.location.href;
+            console.log("window.location.href", path);
+            const baseDirectoryPosition = path.indexOf("/wp-content/");
+            const bedrockBaseDirectoryPosition = path.indexOf("/app/plugins/narrafirma/");
+            if (baseDirectoryPosition !== -1) {
+                window["ajaxurl"] = path.substring(0, baseDirectoryPosition) + "/wp-admin/admin-ajax.php";
+                console.log("set ajaxurl to", window["ajaxurl"]);
+            } else if (bedrockBaseDirectoryPosition !== -1) {
+                window["ajaxurl"] = "/wp/wp-admin/admin-ajax.php";
+                console.log("set ajaxurl to", window["ajaxurl"]);
+            }
+        }
+    }
+    calculateAjaxPath();
+</script>
+
+<!-- the next script might not load if the app has not been built -->
+<script src="bundle-survey.js"></script>
+
+</head>
+
+<body>
+    <noscript>Please enable JavaScript to use the survey.</noscript>
+    <div id="pleaseWaitDiv" class="pleaseWaitOverlay" style="display: none"><em>Starting up survey; please wait...</em></div>
+    <script>
+    console.log("started loading...", new Date());
+    // A delay to keep the please wait from flickering if loads page quickly
+    // This needs to be done here in case the delay is from loading other modules.
+    // Creates global window.narraFirma_pleaseWaitTimeout
+    const pleaseWaitStartupDelay_ms = 500;
+    function showPleaseWaitAfterDelayMillisecond(delay_ms) {
+        window.narraFirma_pleaseWaitTimeout = setTimeout(function() {
+            console.log("showed please wait at", new Date());
+            window.narraFirma_pleaseWaitTimeout = null;
+            document.getElementById("pleaseWaitDiv").style.display = "block";
+        }, delay_ms);
+    }
+    showPleaseWaitAfterDelayMillisecond(500);
+    </script>
+    
+    <div id="surveyDiv" style="overflow: auto"></div>
+  
+    <script>
+    require(["js/survey-main-mithril"], function(surveyMainMithril) {
+        // No need to run anything here as the module will start itself up
+    });
+    </script>
+</body>
+
+</html>

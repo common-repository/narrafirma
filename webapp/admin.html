@@ -1,0 +1,91 @@
+<!DOCTYPE html> 
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>NarraFirma Site Administration</title>
+
+<link rel="stylesheet" href="css/humane/original.css">
+<link rel="stylesheet" href="css/survey.css">
+<link rel="stylesheet" href="css/standard.css">
+
+<style>
+label {
+    display: inline-block;
+    float: left;
+    clear: left;
+    width: 250px;
+    text-align: right;
+    padding-right: 3px;
+}
+input {
+    display: inline-block;
+    float: left;
+}
+
+#pageDiv {
+    padding-top: 1em;
+}
+
+</style>
+
+<script>
+if (console === undefined) console = {"log": function(){ } };
+
+// This is to distinguish between running under WordPress or running under Node.js
+function calculateAjaxPath() {
+    if (!window["ajaxurl"]) {
+        const path = window.location.href;
+        console.log("window.location.href", path);
+        const baseDirectoryPosition = path.indexOf("/wp-content/");
+        const bedrockBaseDirectoryPosition = path.indexOf("/app/plugins/narrafirma/");
+        if (baseDirectoryPosition !== -1) {
+            window["ajaxurl"] = path.substring(0, baseDirectoryPosition) + "/wp-admin/admin-ajax.php";
+            console.log("set ajaxurl to", window["ajaxurl"]);
+        } else if (bedrockBaseDirectoryPosition !== -1) {
+            window["ajaxurl"] = "/wp/wp-admin/admin-ajax.php";
+            console.log("set ajaxurl to", window["ajaxurl"]);
+          }
+    }
+}
+calculateAjaxPath();
+
+var require = {
+    baseUrl: '',
+    waitSeconds: 20,
+    paths: {
+        js: "js",
+        mithril: "lib/mithril/mithril",
+        humane: "lib/humane/humane",
+        lodash: "lib/lodash"
+    }
+};
+
+</script>
+
+<script src="lib/require.min.js"></script>
+
+<!-- the next script might not load if the app has not been built -->
+<script src="bundle-admin.js"></script>
+
+</head>
+
+<body>
+    <noscript>Please enable JavaScript to use NarraFirma. NarraFirma is companion software to the book Working With Stories in Your Community or Organization.</noscript>
+    <div id="pleaseWaitDiv" class="pleaseWaitOverlay" style="display: none">Starting up NarraFirma; please wait...</div>
+    <script>console.log("started loading..."); document.getElementById("pleaseWaitDiv").style.display="block";</script>
+    
+    <div id="navigationDiv" style="display: none"></div>
+    <div id="pageDiv" style="overflow: auto; display: none;"></div>
+    <div id="toasterDiv"></div>
+    <div id="dialogDiv"></div>
+
+    <script>
+    require(["js/projectAdmin"], function(projectAdmin) {
+        // No need to run anything here as the module will start itself up
+    });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html> 
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>NarraFirma</title>
+
+<link rel="stylesheet" href="css/humane/original.css">
+<link rel="stylesheet" href="css/survey.css">
+<link rel="stylesheet" href="css/standard.css">
+
+<script>
+if (console === undefined) console = {"log": function(){ } };
+window.onerror = function(msg, url, line) { alert(msg + "\n\nPlease post this error message to the NarraFirma GitHub issues page. Additional information on the error can be found in your browser's development console."); }
+
+//This is to distinguish between running under WordPress or running under Node.js
+function calculateAjaxPath() {
+    if (!window["ajaxurl"]) {
+        const path = window.location.href;
+        console.log("window.location.href", path);
+        const baseDirectoryPosition = path.indexOf("/wp-content/");
+        const bedrockBaseDirectoryPosition = path.indexOf("/app/plugins/narrafirma/");
+        if (baseDirectoryPosition !== -1) {
+            window["ajaxurl"] = path.substring(0, baseDirectoryPosition) + "/wp-admin/admin-ajax.php";
+            console.log("set ajaxurl to", window["ajaxurl"]);
+        } else if (bedrockBaseDirectoryPosition !== -1) {
+            window["ajaxurl"] = "/wp/wp-admin/admin-ajax.php";
+            console.log("set ajaxurl to", window["ajaxurl"]);
+          }
+    }
+}
+calculateAjaxPath();
+
+var require = {
+    baseUrl: '',
+    waitSeconds: 60,
+    paths: {
+        js: "js",
+        mithril: "lib/mithril/mithril",
+        d3: "lib/d3/d3",
+        jszip: "lib/jszip/jszip",
+        humane: "lib/humane/humane",
+        lodash: "lib/lodash",
+        jstat: "lib/jstat",
+        Blob: "lib/fileSaver/Blob",
+        FileSaver: "lib/fileSaver/FileSaver",
+        stackblur: "lib/canvg/StackBlur",
+        rgbcolor: "lib/canvg/rgbcolor",
+        canvgModule: "lib/canvg/canvg"
+    }
+};
+</script>
+
+<script src="lib/require.min.js"></script>
+
+<!-- the next script might not load if the app has not been built -->
+<script src="bundle-narrafirma.js"></script>
+
+</head>
+
+<body>
+    <noscript>Please enable JavaScript to use the NarraFirma software. It is companion software to the book "Working With Stories in Your Community or Organization".</noscript>
+    <div id="pleaseWaitDiv" class="pleaseWaitOverlay" style="display: none">NarraFirma™ is starting up; please wait...</div>
+    <script>console.log("started loading..."); document.getElementById("pleaseWaitDiv").style.display="block";</script>
+    
+    <div id="navigationDiv" style="display: none"></div>
+    <div id="pageDiv" style="overflow: auto; display: none;"></div>
+    <div id="toasterDiv"></div>
+    <div id="dialogDiv"></div>
+    <script>
+    // Load text with plugins here because TypeScript IDE does not like it elsewhere
+    // Any modules loaded here other than js/main need to be in an include statement in build-narrafirma.js to be added to bundle 
+    require([
+        "js/main",
+        "lib/text!recommendations/recommendations_filledin.csv",
+        "lib/text!recommendations/recommendations_intervention_filledin.csv"
+    ], function(
+        main,
+        recommendationsText,
+        recommendationsInterventionText
+    ) {
+        // Load these here because TypeScript does not like the plugin use for the text plugin
+        window["narraFirma_recommendationsText"] = recommendationsText;
+        window["narraFirma_recommendationsInterventionText"] = recommendationsInterventionText;
+        
+        console.log("Launching main application");
+        main.run();
+    });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,277 @@
+<!DOCTYPE html> 
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>NarraFirma Help: Collection: Start story collection</title>
+    <link rel="stylesheet" href="../../css/help.css">
+</head>
+<body>
+<div class="header">
+	<span class="narrafirma-name">NarraFirma&trade; Help</span>
+	<span class="breadcrumb">
+	<a href="../dashboard/help_page_dashboard.html">Home</a> &gt; 
+	<a href="help_page_collection.html">Collection</a> &gt; 
+	Start story collection
+	</span>
+	<span class="prev_next">
+		&lt;&lt;
+		<a href="help_page_translateStoryForms.html">Translate story forms</a> 
+		||
+		<a href="help_page_printQuestionForms.html">Print story forms</a> 
+		&gt;&gt; 
+	</span>
+</div>
+
+<div id="page-collection-start-story-collection" class="page">
+
+<h1 class="page-title">Start story collection</h1>
+<div class="text">
+<p>
+A story collection identifies and contains a specific group of stories that were collected using a specific story form.
+</p>
+<p>
+You can have multiple story collections within one project. 
+For example, you might create a test collection for experimenting, 
+a pilot collection with a draft story form, and a final story collection with a revised story form.
+</p>
+</div>
+
+<h2 class="heading">What to do here</h2>
+
+<div class="text">
+	<p>On this page you can create new story collections and make (some) changes to existing ones.</p>
+<p>
+To create a story collection, click <b>Create New Story Collection</b>. Give the new collection a <b>name</b>.
+This name will only be visible to people who can see the pages of your NarraFirma project. 
+It will not be visible to the people who only tell stories in the project. 
+</p><p>
+Next, <b>choose a story form</b> from the list of forms you already created.
+This form will be permanently associated with the new story collection.
+</p><p>
+Finally, click the <b>Create Story Collection</b> button. 
+</p>
+<p>Once you have created a story collection, there are three ways to add stories to it.</p>
+<ul>
+<li>You can <b>collect stories over the internet</b>. To do this, 
+select your new story collection in the list, then click <b>Activate or Deactivate Web Form</b>.
+Now look below the table and find the place where it says <b>The web address (URL) of this story collection is</b>.
+Click on the link shown there, or copy and paste it into your browser. You can send that link to anyone, and
+they will be able to use it to fill out your story form and add stories to the story collection.
+</li><li>
+You can <b>enter stories using the NarraFirma data-entry interface</b>. Go to the
+<a href="help_page_enterStories.html">Enter or import stories</a> page and follow the instructions there.
+</li><li>
+You can <b>import stories you collected using a different surveying package</b>. 
+Go to the
+<a href="help_page_enterStories.html">Enter or import stories</a> page and follow the instructions there.
+</li>
+</ul>
+</div>
+
+<h2 class="heading">Connections to other pages</h2>
+
+<div class="text">
+<p>
+When you associate a story form with a story collection, 
+a <strong>snapshot</strong> of the story form, <em>as it appears at that moment</em>, 
+is <strong>copied</strong> into the story collection. Any changes you make to the form 
+or its questions <em>after</em> that moment will <em>not</em> be automatically reflected in the story collection. 
+</p>
+<img src="help_importGuide_dataStorage.png" width="800">
+<p>
+	If you make changes to a story form after you associate it with a collection, 
+		you can <b>update the snapshot version</b> of the form stored in the collection.
+		NarraFirma will warn you if the changes you have made will 
+		cause conflicts with data you have already collected. See the FAQ entry
+		below for details on this point.
+</p>
+</div>
+
+<h2 class="heading">Frequently-asked questions</h2>
+
+<h3 class="question" id="whatYouCanChange">
+Can you give me a clearer picture of exactly what I can and cannot change in my story form
+after I have started to collect stories?
+</h3>
+<div class="question-answer">
+
+<h4>At the level of the story form</h4>
+
+<table>
+	<tr><td>Always safe</td><td>Dangerous after you link the story form to a story collection</td></tr>
+<td>
+<ul>
+	<li>You can change any texts that appear on your story form that are not saved in your stories.
+		For example, you can change the story form's title, introduction, and conclusion, 
+		as well as any messages to participants (like "Thank you for sharing your story").</li>
+	<li>You can add new questions (eliciting, about stories, or about participants).</li>
+	<li>You can change the order of questions on the story form. Order is display-only.</li>
+</ul>
+</td>
+<td style="vertical-align: top">
+	<ul>
+		<li>Do not change the short name of the story form. It is used to connect the story form to the story collection.
+		</li>
+	</ul></td>
+</tr>
+</table>
+
+<h5>If you must rename a story form</h5>
+
+<ul>
+	<li>Duplicate the existing story form.</li>
+	<li>Give the copy a new name.</li>
+	<li>Create a new story collection using the new form.</li>
+	<li>Switch over to collecting stories using the new story collection.</li>
+	<li>As long as the questions in the two forms
+		have the same short names, types, and answer lists, NarraFirma will treat them as if they came from the same story collection
+		and used the same story form.</li>
+	</ul>
+
+<h4>At the level of the question</h4>
+
+<table>
+	<tr><td>Always safe</td><td>Dangerous after you collect some stories</td></tr>
+<td>
+<ul>
+	<li>You can change the actual text of the question. It is display-only. 
+		(Whether the new question <i>means</i> the same thing is up to you.)</li>
+	<li>You can change the label on the write-in "other" box. It is display-only.</li>
+	<li>For a checkbox question, you can change the text displayed after the checkbox. It is a display-only option.
+		The value saved is a true/false value, no matter what it says on the checkbox.
+	</li>
+	<li>For a boolean question, you can set the text displayed on the choices (from the default of yes/no)
+		at the level of the story form. This is a display-only option.
+	</li>
+	<li>For a slider, you can change the left and right slider labels. 
+		The values saved with the stories are numerical only.
+		Of course, if your label change alters the <i>meaning</i> of the numerical values, that's a problem (and NarraFirma will be oblivious to it).
+		But if both labels mean the same thing, it's fine.
+		You can also change the label of the "Does not apply" checkbox under the slider. This is a display-only option as well.
+		</li>
+	<li>
+		For questions with fixed lists of answers (select, radiobuttons, checkboxes):
+		<ul>
+			<li>You can add new answers to the list.</li>
+			<li>You can change the order in which the answers are shown. Order is display-only.</li>
+			<li>You can change the number of rows shown in a select (drop-down) question.</li>
+			</ul>
+		</li>
+</ul>
+</td>
+<td style="vertical-align: top">
+	<ul>
+		<li>Do not change the question's short name. It is used to to identify your stored data.</li>
+		<li>Do not change the question's type - with some exceptions (see below).</li>
+		<li>For questions with fixed lists of answers, do not change the answers themselves.</li>
+	</ul>
+</td>
+</tr>
+</table>
+
+<h5>If you must remove a question</h5>
+
+<ol>
+	<li>Go to the <a href="help_page_reviewIncomingStories.html">Review incoming stories</a> page.</li>
+	<li>Go through your collected stories and remove every answer to the question, if you can. By type:
+		<ul>
+			<li>text or textarea: delete the text</li>
+			<li>select: choose the no-choice choice (usually "--select--")</li>
+			<li>checkboxes: uncheck every box</li>
+			<li>slider: check the "Does not apply" box</li>
+			<li>checkbox: uncheck the box</li>
+			<li>radiobuttons or boolean: Because you cannot uncheck an HTML radio-buttons widget, 
+				the only way to remove these types of questions is to export and then re-import your data.</li>
+		</ul>
+	</li>
+	<li>When no more stories have data for the question, 
+		go to the <a href="help_page_designStoryForms.html">Build story forms</a> page and remove the question from your form.</li>
+	<li>Go back to the <a href="help_page_startStoryCollection.html">Start story collection</a> page and see if you can safely update the form now.</li>
+</ol>
+
+<h5>If you must change a question's short name</h5>
+
+<ol>
+	<li>Create a new question with the new short name.</li>
+	<li>Go to the <a href="help_page_reviewIncomingStories.html">Review incoming stories</a> page.</li>
+	<li>Go through your collected stories removing every original answer, if you can (see above), and adding new answers for the new question.</li>
+	<li>When no more stories have data for the original question, 
+		go to the <a href="help_page_designStoryForms.html">Build story forms</a> page and remove the question from your form.</li>
+	<li>Go back to the <a href="help_page_startStoryCollection.html">Start story collection</a> page and see if you can update the form now.</li>
+</ol>
+
+<h5>If you must change a question's type</h5>
+
+<p>A few question type changes do not create data conflicts.</p>
+<p><img src="help_startStoryCollection_changingTypes.png" width="1000"></p>
+<p>Pairings marked "yes" can be changed back and forth with 
+	no effect on your data. Pairings marked "no" will cause conflicts between data in old and new stories. 
+	"If edited" means that you can change a question from a free-text type (text, textarea) to a single-answer type (select, radiobuttons) 
+	<i>if</i> you first edit all of the existing values to conform to a fixed list (which create a fixed answer list).</p>
+
+<p>If you must change a question's type in one of the "no" areas:</p>
+
+<ol>
+	<li>Collect your stories in two separate story collections.</li>
+	<li>Export the story forms and stories associated with both story collections to separate CSV files.
+		You will end up with four files: two story-form files and two data files.
+	</li>
+	<li>Compare the four files. See what you need to do to merge your questions without losing meaning.</li>
+	<li>Merge the two story-form files into one.</li>
+	<li>Merge the two data files into one.</li>
+	<li>Import the merged story form. Check that it looks right.</li>
+	<li>Import the merged data file. Check that the stories look right.</li>
+	<li>If you have questions during this process, see the <a href="help_page_importGuide.html">Import guide</a>.</li>
+</ol>
+
+<h5>If you must remove one of the answers in a fixed list</h5>
+
+<ol>
+	<li>Go to the
+		<a href="help_page_reviewIncomingStories.html">Review incoming stories</a> page.
+		Go through the stories, unchecking every instance of the answer.</li>
+	<li>Remove the answer from the question (on the 
+		<a href="help_page_writeQuestionsAboutStories.html">Write questions about stories</a> page, for example).</li>
+	<li>Go to the <a href="help_page_startStoryCollection.html">Start story collection</a> page. Update the form.</li>
+</ol>
+
+<h5>If you must change one of the answers in a fixed list</h5>
+
+<ol>
+	<li>Add the new answer to the question (on the 
+		<a href="help_page_writeQuestionsAboutStories.html">Write questions about stories</a> page, for example).</li>
+	<li>Go to the <a href="help_page_startStoryCollection.html">Start story collection</a> page. Update the form.</li>
+	<li>Go to the
+		<a href="help_page_reviewIncomingStories.html">Review incoming stories</a> page.
+		Go through the stories, unchecking every instance of the old answer and checking the new answer instead.</li>
+	<li>Remove the old answer from the question.</li>
+	<li>Go to the <a href="help_page_startStoryCollection.html">Start story collection</a> page. Update the form again.</li>
+</ol>
+</div>
+
+<h3 class="question">
+I have two story collections that are identical except for a few small differences. Can I merge them?
+</h3>
+<div class="question-answer">
+<p>
+If the story forms used in the two story collections only differ in appearances &mdash; that is, the <i>data</i> is the same &mdash;
+you can simply add both story collections to a catalysis report. NarraFirma will merge any questions and answers whose
+short names are identical. (If the answers aren't identical, you can use display lumping to merge them.)
+</p>
+<p>
+If the <i>data</i> in the two story collections are not the same (for example, their question short names differ), 
+you can still merge your data, 
+but you'll have to use CSV export and import to do it.
+Export both story collections and their associated story forms
+to the CSV file format. Then carefully merge the two CSV files into one file, using a spreadsheet. 
+Then import the merged CSV file into a new story collection (along with the revised story form).
+</p>
+<p>If you are not sure what to do, one quick way to check is to 
+	export both story collections to CSV files, then compare the files using a spreadsheet.</p>
+</div>
+
+
+</div>
+
+</body>
+</html>

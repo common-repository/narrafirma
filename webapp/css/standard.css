@@ -1,0 +1,2693 @@
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ All pages ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* NOTE: the mnemonic for margin or padding order is TROUBLE: Top Right Bottom Left */
+/* html, body, and pleaseWaitOverlay are in survey.css */
+
+/* the NarraFirma color palette 
+Headers b0d4d4
+Working areas c5d2eb (parenthetical d7dce4)
+Selected areas ffe1aa
+Disabled/readonly area text color 979696
+Action areas (buttons) ffbb84
+Special warning areas f88a57
+*/
+
+:root {
+    /* "background" is assumed if not stated */
+    /* base colors (body, etc) cannot be changed */
+
+    /* headers */
+    --color-header: #b0d4d4; 
+    --color-header-border: #638989; 
+
+    /* links */
+    --color-link: #002727;
+
+    /* buttons */
+    --color-button: #fcc79a;
+    --color-button-hover: #ffa25f;
+    --color-button-selected: #ffa861;
+    --color-button-selected-hover: #f88e37;
+    --color-button-disabled: #dbd9d9;
+    --color-button-border: gray;
+
+    /* text boxes */
+    --color-text: black;
+    --color-text-disabled: #666666;
+    --color-textbox-border: #9cbbbb;
+    --color-textbox-border-required: rgb(255, 140, 0);
+    --color-textbox-border-disabled: gray;
+    --color-box-shadow: gray;
+
+    /* modal dialogs */
+    --color-dialog: #b0d4d4;
+    --color-dialog-overlay: rgba(0.0, 0.0, 0.0, 0.3);
+    --color-dialog-border: black;
+    --color-dialog-internal: white;
+    --color-dialog-internal-border: black;
+
+    /* working areas */
+    --color-editing: #e4eaf4; 
+    --color-viewing: white;
+    --color-story-card: white;
+
+    /* grids */
+    --color-grid: white;
+    --color-grid-border: #9cbbbb;
+    --color-grid-border-disabled: #dbd9d9;
+    --color-grid-selected-even: #ffe9c4;
+    --color-grid-selected-odd: #ffe9c4;
+    --color-grid-unselected-even: white;
+    --color-grid-unselected-odd: #f2f7f7;
+    --color-grid-editor: #ffe9c4;
+    --color-grid-editor-border: #fcc79a;
+
+    /* tables */
+    --color-table: #f2f7f7;
+    --color-table-border: black;
+    --color-icon-table-border: gray; /* graph types, question types */
+
+    /* notices, warnings, errors */
+    --color-reminder: #f2f7f7;
+    --color-reminder-border: #7db9b9;
+    --color-notice: #eafafa;
+    --color-notice-border: black;
+    --color-warning-text: #f88a57;
+    --color-error-border: red;
+    --color-error-text: red;
+    --color-read-only-warning: rgb(177, 3, 3);
+    --color-read-only-warning-background: rgba(177, 3, 3, 0.2); /* for clustering surface, border will not draw for some reason */
+
+    /* recommendations */
+    --color-recommendation-no: black;
+    --color-recommendation-low: gray;
+    --color-recommendation-medium: lightgray;
+    --color-recommendation-high: white;
+
+    /* catalysis report */
+    --color-catreport-name-and-date: #d6ebeb;
+    --color-catreport-about: #eeeeee;
+    --color-catreport-about-border: #d3d2d2;
+    --color-catreport-perspective: #b0d4d4;
+    --color-catreport-perspective-notes: #d6ebeb;
+    --color-catreport-theme: #b0d4d4;
+    --color-catreport-theme-notes: #d6ebeb;
+    --color-catreport-interpretation: #fcd997;
+    --color-catreport-interpretation-notes: #ffeed0;
+    --color-catreport-interpretation-idea: #eafff7;
+    --color-catreport-interpretation-question: #fff7ea;
+    --color-catreport-observation: #c5d2eb;
+    --color-catreport-observation-border: #b0d4d4;
+    --color-catreport-observation-strength-text: #979696;
+    --color-catreport-observation-description: #eef2fa;
+    --color-catreport-observation-linking-question-by-theme: #eef2fa;
+    --color-catreport-observation-linking-question-by-perspective: #fce1af;
+
+    /* graphs */
+    --color-graph-barchart-even: #2e4a85;
+    --color-graph-barchart-even-selected: #e0a266;
+    --color-graph-barchart-odd: #7b8cb2;
+    --color-graph-barchart-odd-selected: #cc6400;
+    --color-graph-histogram-even: #2e4a85;
+    --color-graph-histogram-even-selected: #e0a266;
+    --color-graph-histogram-odd: #7b8cb2;
+    --color-graph-histogram-odd-selected: #cc6400;
+    --color-graph-histogram-mean: #ff0000;
+    --color-graph-histogram-standard-deviation-low: #8db500;
+    --color-graph-histogram-standard-deviation-high: #8db500;
+    --color-graph-contingency-observed: #d5dae6;
+    --color-graph-contingency-observed-border: #2e4a85;
+    --color-graph-contingency-observed-selected: #e0a266;
+    --color-graph-contingency-observed-selected-border: #cc6400;
+    --color-graph-contingency-expected: none;
+    --color-graph-contingency-expected-border: #ff0000;
+    --color-graph-contingency-expected-text: #2e4a85;
+    --color-graph-contingency-minihistogram: #eff4ff;
+    --color-graph-contingency-minihistogram-axis: gray;
+    --color-graph-contingency-minihistogram-selected: #ffbb84;
+    --color-graph-contingency-minihistogram-border: black;
+    --color-graph-contingency-minihistogram-mean: blue;
+    --color-graph-contingency-minihistogram-stddev: #b0d4d4;
+    --color-graph-scatter-story: #2e4a85;
+    --color-graph-scatter-story-border: #2e4a85;
+    --color-graph-scatter-story-selected: #cc6400;
+    --color-graph-scatter-story-selected-border: #cc6400;
+    --color-graph-corrmap: white;
+    --color-graph-corrmap-border: lightgray;
+    --color-graph-corrmap-node-actual: #ffe1aa;
+    --color-graph-corrmap-node-actual-selected: #f88a57;
+    --color-graph-corrmap-node-actual-border: #f88a57;
+    --color-graph-corrmap-node-max: white;
+    --color-graph-corrmap-node-max-border: #f88a57;
+    --color-graph-corrmap-node-max-selected: #f88a57;
+    --color-graph-corrmap-link: #d7dce4;
+    --color-graph-corrmap-link-selected: #f88a57;
+}
+
+#pageDiv {
+   padding-left: 0.5em;
+   padding-top: 3em;
+}
+
+a:link {
+	color: var(--color-link);
+}
+
+a:visited {
+	color: var(--color-link); /* there is not much reason to indicate visited status within the app */
+}
+
+a:hover {
+	color: var(--color-link);
+}
+
+a:active {
+	color: var(--color-link);
+}
+
+/* special overrides when project read-only warning is in effect */
+
+.showReadOnlyWarning textarea {
+    border-color: var(--color-read-only-warning);
+}
+
+.showReadOnlyWarning input {
+    border-color: var(--color-read-only-warning);
+}
+
+.showReadOnlyWarning select {
+    border-color: var(--color-read-only-warning);
+}
+
+.showReadOnlyWarning .narrafirma-textbox {
+    border-color: var(--color-read-only-warning);
+}
+
+.showReadOnlyWarning .narrafirma-clustering-surface {
+    /* would like to change the border color of this div, but for some reason the border does not draw */
+    /* must be something about the svg inside it */
+    background-color: var(--color-read-only-warning-background);
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+}
+
+.showReadOnlyWarning .narrafirma-read-only-warning {
+    display: block;
+    border-radius: 0;
+    font-size: 1em;
+    padding: 0.25em 1em 0.25em 0;
+    margin: 0.5em 1em 0.5em 0.5em;
+    color: var(--color-read-only-warning);
+    
+}
+
+.narrafirma-read-only-warning {
+    display: none;
+}
+
+#narrafirma-read-only {
+    display: inline-block;
+    font-size: 0.9em;
+    padding: 0.25em 2em 0.25em 2em;
+    margin: 0 1em 0.25em 1em;
+    color: var(--color-read-only-warning);
+    background-color: var(--color-reminder);
+    border: 1px solid var(--color-read-only-warning);
+    box-shadow: 2px 2px black;
+}
+
+/* end read-only warning styles */
+
+
+
+textarea, input, select { /* override because expanded in survey */
+    margin-top: 0.2em;
+    margin-left: 1em;
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+    background-color: white;
+    border: 1px solid var(--color-textbox-border);
+}
+
+input[type="text"] {
+    width: 18em;
+}
+
+select[multiple] {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;  
+}
+
+select[multiple] { /* only used in story browser */
+    width: 60%;
+    height: 140px;
+}
+
+a:focus, a:hover {
+    outline: 2px solid var(--color-button-hover);
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Login page ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+.narrafirma-login-welcome-and-intro {
+    background-color: var(--color-header);
+    border-bottom: 4px solid var(--color-button); 
+    padding: 0.2em;
+    margin-bottom: 1em;
+}
+
+h2.narrafirma-login-welcome {
+    font-size: 1.6em;
+    font-weight: bold;
+    margin-left: 0.2em;
+}    
+
+h2.narrafirma-login-hello {
+    padding: 0.5em;
+    font-size: 1.2em;
+    font-style: italic;
+}
+
+p.narrafirma-login-text {
+    padding: 0.5em;
+    font-size: 1.1em;
+}
+
+p.narrafirma-login-intro {
+    padding: 0 0 0 0.7em;
+    font-size: 1em;
+}
+
+p.narrafirma-login-action {
+    font-size: 1.1em;
+    margin: 1em 0 0 1.5em;
+}
+
+input[type="submit"].narrafirma-login-button {
+    background-color: var(--color-button);
+    box-shadow: 1px 1px 1px var(--color-box-shadow);
+    margin: 0.4em;
+    padding: 0.4em;
+    white-space: nowrap;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+input[type="text"].narrafirma-login-input {
+    padding: 0.2em;
+}
+
+input[type="password"].narrafirma-login-input {
+    padding: 0.2em;
+}
+
+input[type="submit"].narrafirma-login-button:hover {
+    background-color: var(--color-button-hover);
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Navigation bar ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+#navigationDiv {
+    background-color: var(--color-header);
+    border-top: 2px solid var(--color-header-border); 
+    border-bottom: 2px solid var(--color-header-border); 
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    width: 100%;
+    height: 1.6em;
+    padding: 0.75em 0.2em 0.5em 0em;
+    margin-bottom: 2em;
+}
+
+#narrafirma-name {
+    display: inline-block;
+    border-right: 2px solid var(--color-header-border); 
+    font-size: 1em;
+    margin: 0 0 0 0.5em; 
+    padding-right: 0.5em;
+    color: var(--color-text);
+}
+
+.narrafirma-serverstatus-ok {
+	border: 2px solid var(--color-header); /* so the name doesn't shift when the border appears */
+}
+
+.narrafirma-serverstatus-waiting {
+	border: 2px solid var(--color-header); /* so the name doesn't shift when the border appears */
+}
+
+.narrafirma-serverstatus-waiting-last-error {
+	border: 2px solid var(--color-error-border);
+}
+
+.narrafirma-serverstatus-failure {
+	border: 2px solid var(--color-error-border);
+}
+
+#narrafirma-project-name {
+    display: inline-block;
+    border-right: 2px solid var(--color-header-border); 
+    font-size: 1em;
+    padding-right: 0.5em;
+    margin: 0 0.5em 0 0.5em;
+}
+
+#narrafirma-breadcrumbs {
+    font-size: 0.9em;
+}
+
+#narrafirma-next-page, #narrafirma-previous-page {
+    font-size: 0.9em;
+    padding: 0.1em 0.5em 0.1em 0.5em;
+    margin: -0.2em 1em 0 0;
+    float: right;
+    background-color: var(--color-button);
+    box-shadow: 1px 1px 1px var(--color-box-shadow);
+    text-decoration: none;
+}
+
+#narrafirma-next-page:hover, #narrafirma-previous-page:hover {
+    background-color: var(--color-button-hover);
+}
+
+#narrafirma-next-page.narrafirma-link-disabled,  #narrafirma-previous-page.narrafirma-link-disabled {
+    display: none;
+    background-color: var(--color-button-disabled);
+    border: 1px solid var(--color-text-disabled);
+    box-shadow: 1px 1px 1px var(--color-box-shadow);
+    text-decoration: none;
+}
+
+.narrafirma-help-link {
+    font-size: 0.9em;
+    padding: 0.35em 0.75em 0.35em 0.75em;
+    margin: -0.2em 1em 0 0;
+    float: right;
+    background-color: var(--color-button);
+    box-shadow: 1px 1px 1px var(--color-box-shadow);
+    text-decoration: none;
+}
+
+#narrafirma-logout-link, #narrafirma-login-link {
+    font-size: 0.9em;
+    float: right;
+    padding: 0.2em 0.5em 0.1em 0.5em;
+    margin-right: 0.75em;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Dashboard (home page) ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+.narrafirma-pni-phases-image {
+    float: left;
+    /* long bottom margin to prevent admin links on right from popping over to left */
+	margin: 0.2em 1.2em 30em 0.2em;
+}
+
+.narrafirma-dashboardStatusButton {
+    font-size: 1em;
+    min-width: 10em;
+    height: 2em;
+    border-radius: 12px; 
+    border: none;
+    box-shadow: 1px 1px 1px var(--color-box-shadow);
+    margin-bottom: 0.5em;
+    padding: 0.4em;
+}
+
+.narrafirma-dashboardSectionStatusDisplayCompletion {
+    margin-left: 1.0em;
+}
+
+.narrafirma-dashboard-story-collection-status table {
+    border-collapse: collapse;
+    margin-right: 1em;
+}
+
+.narrafirma-dashboard-story-collection-status th {
+    font-weight: normal;
+    background-color: var(--color-header);
+	border: 1px solid var(--color-textbox-border);
+	padding: 0.25em;
+    text-align: left;
+}
+
+.narrafirma-dashboard-story-collection-status td {
+    border: 1px solid var(--color-textbox-border);
+    background-color: var(--color-table);
+    padding: 0.25em;
+    max-width: 20em;
+    text-align: left;
+}
+    
+.narrafirma-dashboard-header {
+	display: block;
+	font-weight: bold;
+    font-size: 1.1em;
+	margin: 0.5em 0 0.7em 0.5em;
+}
+
+.narrafirma-dashboard-page-link {
+	display: block;
+	margin: 0 0 0.1em 0.5em;
+    font-size: 1em;
+}
+
+.narrafirma-dashboard-page-div {
+    display: block;
+}
+
+.showPageExplanations .narrafirma-dashboard-page-link-explanation {
+    display: inline;
+    margin-left: 0.7em;
+    font-size: 0.85em;
+    color: rgb(125, 125, 125);
+}
+
+.narrafirma-dashboard-page-link-explanation {
+    display: none;
+}
+
+.narrafirma-questionAnswer { /* this is now used to display the reminder on the section page */
+    border-left: 3px solid var(--color-reminder-border);
+    background-color: var(--color-reminder);
+    margin: 0.3em 0.3em 0 10%;
+    padding: 0.3em;
+}
+
+.narrafirma-questionAnswer:empty { /* if no reminder entered, do not show */
+	padding: 0px;
+	margin: 0px;
+	border: none;
+	background-color: white;
+}
+
+.narrafirma-collision-message {
+    margin: 1em;
+    padding: 1em;
+    border: 1px solid var(--color-textbox-border);
+    background-color: var(--color-notice);
+}
+
+.narrafirma-collision-header {
+    margin-bottom: 0.5em;
+}
+
+.narrafirma-collision-button {
+    display: inline-block;
+    margin: 1em 0.5em 0.5em 0.5em;
+}
+
+.narrafirma-collision-buttons {
+    display: block;
+    text-align: center;
+}
+
+.narrafirma-collision-explanation {
+    font-weight: normal;
+    margin-top: 0.5em;
+}
+
+.narrafirma-home-page-link {
+    display: table; /* display block sets the width at 100% of the page */
+    margin-bottom: 0.2em;
+}
+
+.narrafirma-home-page-section-link {
+    display: inline;
+    margin: 0.2em 0.2em 0 0;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Buttons bottom of page (and elsewhere) ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+form {
+    padding-left: 0.7em;
+ }
+ 
+.narrafirma-page-change-button {
+    font-size: 0.9em;
+    min-width: 6em;
+    border: none;
+    background-color: var(--color-reminder);
+    box-shadow: 1px 1px 1px var(--color-reminder-border);
+    margin: 1em 0 0.5em 0.5em;
+    padding: 0.3em 0.6em 0.3em 0.6em;
+}
+
+.narrafirma-page-change-button:hover {
+    color: white;
+    background-color: var(--color-reminder-border);
+}
+
+button {
+    background-color: var(--color-button);
+    box-shadow: 1px 1px 1px var(--color-box-shadow);
+    margin: 0.4em;
+    padding: 0.4em;
+    white-space: nowrap;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+button:hover {
+    background-color: var(--color-button-hover);
+}
+
+button:disabled {
+    background-color: var(--color-button-disabled);
+    color: var(--color-text-disabled); 
+}
+
+.button-text {
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.buttonWithTextImage {
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 0.25em;
+}
+
+/* all of these are invoked along with buttonWithTextImage */
+.homeButtonImage { background-image: url(../images/ionicicons/home-outline.svg); }
+.leftButtonImage { background-image: url(../images/ionicicons/arrow-back-outline.svg); }
+.rightButtonImage { background-image: url(../images/ionicicons/arrow-forward-outline.svg); margin-left: 0.25em}
+
+.recommendationsButtonImage { background-image: url(../images/ionicicons/bulb-outline.svg); }
+
+.addButtonImage { background-image: url(../images/ionicicons/add-outline.svg); }
+.removeButtonImage { background-image: url(../images/ionicicons/trash-outline.svg); }
+.copyButtonImage { background-image: url(../images/ionicicons/copy-outline.svg); }
+
+.doItButtonImage { background-image: url(../images/ionicicons/play-outline.svg); }
+
+.clearButtonImage { background-image: url(../images/ionicicons/close-outline.svg); }
+.checkButtonImage { background-image: url(../images/ionicicons/shield-checkmark-outline.svg); }
+.previewButtonImage { background-image: url(../images/ionicicons/paper-plane-outline.svg); }
+
+.importButtonImage { background-image: url(../images/ionicicons/enter-outline.svg); }
+.exportButtonImage { background-image: url(../images/ionicicons/exit-outline.svg); }
+
+.navigateRandomButtonImage { background-image: url(../images/ionicicons/dice-outline.svg); }
+
+.closeButtonImage { background-image: url(../images/ionicicons/close-outline.svg); }
+.changeButtonImage { background-image: url(../images/ionicicons/build-outline.svg); }
+.confirmButtonImage { background-image: url(../images/ionicicons/checkmark-outline.svg); }
+.cancelButtonImage { background-image: url(../images/ionicicons/close-outline.svg); }
+
+.upButtonImage { background-image: url(../images/ionicicons/chevron-up-outline.svg); }
+.downButtonImage { background-image: url(../images/ionicicons/chevron-down-outline.svg); }
+
+.printButtonImage { background-image: url(../images/ionicicons/print-outline.svg); }
+
+.showButtonImage { background-image: url(../images/ionicicons/eye-outline.svg); }
+.hideButtonImage { background-image: url(../images/ionicicons/eye-off-outline.svg); }
+
+.generateButtonImage{ background-image: url(../images/ionicicons/color-wand-outline.svg); }
+.updateButtonImage { background-image: url(../images/ionicicons/sync-outline.svg); }
+.activateOrDeactivateButtonImage { background-image: url(../images/ionicicons/globe-outline.svg); }
+.helpButtonImage{ background-image: url(../images/ionicicons/help-outline.svg); }
+.selectAllButtonImage { background-image: url(../images/ionicicons/checkmark-done-outline.svg); }
+
+.buttonWithNoTextImage {
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+/* all of these are invoked along with buttonWithNoTextImage */
+.navigateToStartIconImage { background-image: url(../images/ionicicons/play-skip-back-outline.svg); }
+.navigatePreviousIconImage { background-image: url(../images/ionicicons/previous-outline.svg); }
+.navigateNextIconImage { background-image: url(../images/ionicicons/play-outline.svg); }
+.navigateToEndIconImage { background-image: url(../images/ionicicons/play-skip-forward-outline.svg); }
+
+ .questionPrompt.narrafirma-reminder {
+    background-color: var(--color-reminder);
+ }
+
+ .questionExternal.narrafirma-reminder {
+    border: 1px solid var(--color-reminder-border);
+    background-color: var(--color-reminder);
+    margin-top: 0.4em;
+ }
+
+ .functionResult { /* used on "stop story collection" page */
+     margin: 0.4em 0 1em 0.6em;
+ }
+
+ /* these are used on dashboard pages but not on buttons */
+
+.showPageCategoryIcons .pageCategoryImage {
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    width: 20px;
+    height: 20px;
+    margin-right: 0.2em;
+    text-align: center;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.pageCategoryImage {
+    display: none;
+}
+
+/* manage, plan, journal, enter, review, output */
+.manageCategoryImage { background-image: url(../images/ionicicons/build-outline.svg); }
+.planCategoryImage { background-image: url(../images/ionicicons/bulb-outline.svg); }
+.enterCategoryImage { background-image: url(../images/ionicicons/create-outline.svg); }
+.exportCategoryImage { background-image: url(../images/ionicicons/print-outline.svg); }
+.reviewCategoryImage { background-image: url(../images/ionicicons/stats-chart-outline.svg); }
+.journalCategoryImage { background-image: url(../images/ionicicons/book-outline.svg); }
+
+.showTips .narrafirma-tip {
+    display: block;
+    font-size: 0.8em;
+    font-style: italic;
+    margin-right: 2em;
+}
+
+.narrafirma-tip {
+    display: none;
+}
+
+ /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Pages with entry fields ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+.htmlWidget, .narrafirma-image {
+    border-radius: 12px;
+    padding: 0.25em; 
+    margin: 0.5em 0 0.25em 0.35em; 
+}
+
+.hiddenHtmlWidget {
+    display: none;
+}
+
+.narrafirma-page-name {
+    font-weight: 700;
+    font-size: 1.3em;
+    margin: 1em 0 0 0.5em;
+} 
+
+.narrafirma-section-page-image {
+    margin: 1em 0 0 1em;
+    width: 260px;
+}
+
+.questionExternal {
+	background-color: var(--color-editing);
+    padding: 0.2em;
+    margin: 0 0.6em 0 0.2em;
+}
+
+.narrafirma-griditempanel-editing .questionExternal {
+    margin-right: 0.2em;
+}
+
+.narrafirma-griditempanel-editing .questionExternal.narrafirma-question-type-label  {
+    background-color: inherit;
+    margin: 0.2em 0 0.2em 0;
+}
+
+.narrafirma-griditempanel-editing .questionExternal.narrafirma-question-type-questionAnswer  {
+    background-color: inherit;
+    margin-bottom: 0.5em;
+    margin-left: 0.5em;
+    padding-left: 0.5em;
+}
+
+.questionExternal.narrafirma-question-type-questionAnswer {
+    background-color: inherit;
+}
+
+.questionExternal-annotation {
+    background-color: var(--color-editing);
+	margin-bottom: 0.2em;
+    padding: 0.2em;
+    margin: 0 0.2em 0 0.2em;
+}
+
+.questionPrompt {
+    padding: 0.4em 0.4em 0.1em 0.4em;
+    display: block;
+    line-height: 1.2em;
+}
+
+.narrafirma-question-type-radiobuttons .questionPrompt  {
+    padding-left: 0.8em;
+}
+
+.narrafirma-question-type-checkboxes .questionPrompt  {
+    padding-left: 0.8em;
+}
+
+.narrafirma-question-type-boolean .questionPrompt  {
+    padding-left: 0.8em;
+}
+
+.questionInternal {
+    padding: 0 0 0.4em 0.6em;
+}
+
+.questionExternal.narrafirma-question-type-filterNotice {
+    background-color: var(--color-notice);
+    margin-bottom: 0.2em;
+    padding: 0.5em 0.5em 0.5em 1em;
+    font-style: italic;
+}
+
+.narrafirma-griditempanel-editing .narrafirma-question-type-grid-plus-prompt {
+    background-color: var(--color-editing);
+    padding-left: 0.5em;
+    margin-left: 0.2em;
+    margin-right: 0.2em;
+}
+
+.narrafirma-question-type-grid-plus-prompt .questionPrompt {
+    margin-left: 0.4em;
+}
+.narrafirma-question-type-grid-plus-prompt .narrafirma-griditempanel-divwithbutton-editing .questionPrompt {
+    margin-bottom: 0;
+}
+
+.narrafirma-story-form-questions-chooser-table-td {
+    border: none;
+    min-width: 20em;
+    text-align: center;
+    vertical-align: top;
+    padding: 0.5em;
+}
+
+.narrafirma-story-form-questions-chooser-table-td-middle {
+    border: none;
+    max-width: 1em;
+    text-align: center;
+    vertical-align: center;
+    padding: 0.5em;
+}
+
+.narrafirma-story-form-questions-chooser-list {
+    width: 90%;
+    background-color: var(--color-viewing);
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Choosing a question type ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+.narrafirma-question-types-chooser-table-div {
+    margin-bottom: 1em;
+}
+
+.narrafirma-question-types-chooser-table {
+    margin: 1em 0.5em 1em 1em;
+    border-collapse: collapse;
+}
+
+.narrafirma-question-types-chooser-table-td {
+    vertical-align: top;
+    width: 200px;
+    max-width: 300px;
+    border: 1px dashed var(--color-textbox-border);
+}
+
+.narrafirma-question-types-chooser-table-header {
+    font-style: italic;
+}
+
+.narrafirma-question-types-chooser-table-label-checked {
+    font-weight: bold;
+}
+
+.narrafirma-question-types-chooser-table-label-unchecked {
+    font-weight: normal;
+}
+
+.narrafirma-question-type-thumbnail-checked {
+    margin-top: 0.3em;
+    border: 2px solid var(--color-textbox-border);
+}
+
+.narrafirma-question-type-thumbnail-checked-disabled {
+    margin-top: 0.3em;
+    border: 2px solid var(--color-textbox-border-disabled);
+}
+
+.narrafirma-question-type-thumbnail-unchecked {
+    margin-top: 0.3em;
+    border: none;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Question type: Header ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+.questionExternal.narrafirma-question-type-header {
+	display: block;
+	font-size: 1.2em;
+	font-weight: bold;
+	background-color: var(--color-header);  
+    border-bottom: 1px solid var(--color-header-border);  
+    margin-top: 0.6em;
+    margin-left: 0.15em;
+    margin-right: 0.5em;
+}
+
+.questionExternal.narrafirma-question-type-header.read-only {
+    border-bottom: none;
+}
+
+.narrafirma-question-type-header .questionPrompt{
+    padding-bottom: 0.2em;
+}
+
+.narrafirma-griditempanel-editing .narrafirma-question-type-header.questionExternal { 
+	background-color: var(--color-header);
+    border-bottom: 1px solid var(--color-header-border);  
+    margin-left: 0.15em;
+    margin-right: 0.15em;
+}
+ 
+.narrafirma-griditempanel-viewing .narrafirma-question-type-header.questionExternal {
+    background-color: var(--color-viewing); 
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Question type: Label ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+.questionExternal.narrafirma-question-type-label {
+    background-color: inherit;
+}
+
+.questionExternal.narrafirma-question-type-label-not-white {
+    background-color: var(--color-editing);
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Question type: Header: Text, Textarea ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+.questionExternal.narrafirma-question-type-text.narrafirma-ignore-story {
+	background-color: var(--color-header);
+}
+
+.narrafirma-textbox {
+    width: 98%;
+    border: 1px solid var(--color-textbox-border);
+}
+
+.narrafirma-textbox-required {
+    width: 98%;
+    border: 3px solid var(--color-textbox-border-required);
+}
+
+.narrafirma-textbox-short {
+    width: 24em;
+    border: 1px solid var(--color-textbox-border);
+}
+
+.narrafirma-textbox-short-required {
+    width: 24em;
+    border: 3px solid var(--color-textbox-border-required);
+}
+
+textarea.narrafirma-textbox {
+    min-height: 5em;
+    width: 96%;
+    resize: vertical;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Question type: Checkbox ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+.narrafirma-question-type-checkbox.questionInternal {
+    margin: 0 0 0.3em 0.5em;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Question type: Slider ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+.narrafirma-question-type-slider.questionInternal {
+    text-align: center;
+    min-width: 400px;
+}
+
+.narrafirma-slider-low-arrow {
+    white-space: nowrap;
+}
+
+.narrafirma-slider-low {
+    text-align: right;
+    font-size: 0.9em;
+    margin: 0 0.5em 0 0.5em;
+    white-space: nowrap;
+}
+
+.narrafirma-slider {
+    text-align: center;
+}
+
+.narrafirma-slider-high {
+    text-align: left;
+    font-size: 0.9em;
+    margin: 0 0.5em 0 0.5em;
+    white-space: nowrap;
+}
+
+.narrafirma-slider-high-arrow {
+    white-space: nowrap;
+}
+
+.narrafirma-slider-value {
+    margin-left: 0.5em;
+    font-size: 0.9em;
+    white-space: nowrap;
+}
+
+.narrafirma-slider-does-not-apply {
+    margin-top: 12px;
+}
+
+.narrafirma-survey-link {
+    display: block;
+    padding: 1em 0 0 1em;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ write-in "other" text box ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+.narrafirma-question-type-text .narrafirma-write-in-div {
+    margin: 0.5em 0.5em 0.3em 0;
+}
+
+.narrafirma-question-type-textarea .narrafirma-write-in-div {
+    margin: 0.5em 0.5em 0.3em 0;
+}
+
+.narrafirma-question-type-select .narrafirma-write-in-div {
+    margin: 0.5em 0.5em 0.3em 0;
+}
+
+.narrafirma-question-type-boolean .narrafirma-write-in-div {
+    margin: 0.5em 0.5em 0.3em 1em;
+}
+
+.narrafirma-question-type-checkbox .narrafirma-write-in-div {
+    margin: 0.5em 0 0.3em 0.4em;
+}
+
+.narrafirma-question-type-radiobuttons .narrafirma-write-in-div {
+    margin: 0.5em 0.5em 0.3em 1em;
+}
+
+.narrafirma-question-type-checkboxes .narrafirma-write-in-div {
+    margin: 0.5em 0.5em 0.3em 1em;
+}
+
+.narrafirma-question-type-slider .narrafirma--write-in-div {
+    text-align: left;
+    margin: 0.5em 0.5em 0.3em 0;
+}
+
+.narrafirma-write-in-prompt {
+    margin: 0;
+}
+
+input[type='text'].narrafirma-write-in-input {
+    width: 24em;
+    margin-left: 0.5em;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+input[type='textarea'].narrafirma-write-in-textarea {
+    width: 90%;
+    margin-left: 0.5em;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    resize: vertical;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Adjustments for particular pages ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+.narrafirma-page_reviewIncomingStories .questionInternal {
+	padding-top: 0;
+}
+
+.narrafirma-question-type-quizScoreResult {
+    padding: 0.6em 0 0.1em 2em;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Annotation pages ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+.narrafirma-annotation-counts-graph {
+    margin: 1em 0 0 4em;
+}
+
+.narrafirma-annotation-counts-graph-select {
+    margin: 1em 0 0 2em;
+}
+
+button.narrafirma-add-annotation-choice {
+    display: inline-block;
+    white-space: nowrap;
+    box-shadow: none;
+    padding: 0.3em;
+    font-size: 0.9em;
+    cursor: pointer;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Translation page ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+.narrafirma-translation-prompt {
+    margin: 0.5em;
+}
+
+.narrafirma-text-to-be-translated {
+    margin: 0.5em;
+    font-size: 1.1em;
+}
+
+.narrafirma-translation-explanation {
+    margin-left: 1em;
+    font-size: 0.8em;
+    font-style: italic;
+}
+
+table.narrafirma-translation-dictionary {
+    border-collapse: collapse;
+    table-layout: auto;
+    margin-left: 2em;
+    width: 95%;
+}
+
+td.narrafirma-translation-language {
+    text-align: left;
+    vertical-align: top;
+    font-size: 0.9em;
+}
+
+td.narrafirma-translation-textbox {
+    text-align: left;
+    width: 95%;
+}
+
+input[type=text].narrafirma-translation-textbox {
+    margin: 0.25em 0.25em 0.5em 0.25em;
+    width: 95%;
+}
+
+textarea.narrafirma-translation-textbox {
+    margin: 0.25em 0.25em 0.5em 0.25em;
+    width: 95%;
+    resize: vertical;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Grid item panel (spreadsheet like table) ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+.questionExternal.narrafirma-question-type-grid { /* no background for grid */
+    background-color: var(--color-grid); 
+    margin-top: 0;
+}
+
+.narrafirma-griditem-form {
+	width: 800px;
+	height: 800px;
+	overflow: auto;
+}
+
+.narrafirma-griditempanel-hidden {
+    display: none;
+}
+
+.narrafirma-griditempanel-divwithbutton-editing { 
+    border: 4px solid var(--color-grid-editor-border);
+    margin: 0.5em;
+    padding: 0 0 0.25em 0;
+    box-shadow: 0 0 3px 4px darkgray;
+}
+
+.narrafirma-griditempanel-divwithbutton-viewing {
+    background-color: var(--color-grid);
+    color: var(--color-text-disabled);
+	margin: 0.5em;
+	border: 4px groove var(--color-grid-border-disabled);
+}
+
+button.narrafirma-griditempanel-close-button {
+    display: block;
+    padding: 0.4em 2em 0.4em 2em;
+    margin: 0.5em auto 0.25em auto;
+}
+
+button.narrafirma-griditempanel-bottom-close-button {
+    display: block;
+    padding: 0.4em 2em 0.4em 2em;
+    margin: 0.5em auto 0.25em auto;
+}
+
+.narrafirma-griditempanel-editing {
+    margin: 0.6em;
+}
+
+.narrafirma-griditempanel-editing .questionExternal {
+	background-color: var(--color-editing);
+}
+
+.narrafirma-griditempanel-viewing {
+	margin: 0.6em;
+}
+
+.narrafirma-griditempanel-viewing .questionExternal {
+    background-color: var(--color-viewing);
+    color: var(--color-text-disabled);
+}
+
+.questionExternal .read-only { 
+    background-color: inherit; 
+}
+
+/* hides "copy from template" button when viewing grid item */
+.narrafirma-griditempanel-viewing .narrafirma-template-button {
+	display: none;
+}
+
+.narrafirma-special-warning {
+	display: block;
+    background-color: inherit;
+    color: var(--color-text);
+    /* using the box shadow makes it possible to place the border INSIDE the box instead of outside it */
+    -webkit-box-shadow: inset 0px 0px 0px 2px var(--color-editing);
+    -moz-box-shadow: inset 0px 0px 0px 2px var(--color-editing);
+    box-shadow: inset 0px 0px 0px 2px var(--color-editing);
+	padding: 0.5em;
+    margin: 0 -0.5em 0.25em -0.5em; /* negative to make up for the fact that this span is inside a questionPrompt which is inset */
+}
+
+.narrafirma-griditempanel-viewing .narrafirma-special-warning {
+    color: var(--color-text-disabled);
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+
+.narrafirma-centered-label {
+    text-align: center;
+    display: block;
+    margin-top: 0.5em;
+    font-style: italic;
+}
+
+.narrafirma-grid {
+    margin: 0.4em;
+}
+
+table tr:hover button.fader {
+    opacity: 1;
+}
+
+table button.fader {
+    opacity: 1;
+    overflow: auto;
+}
+
+table.scrolling {
+  margin: 0.2em 0.2em 0em 0.9em;
+  display: block;
+  max-height: 500px;
+  overflow-y: scroll;
+  border-collapse: collapse;
+  border: 1px solid var(--color-editing);
+}
+
+table.scrolling th {
+	background-color: var(--color-header);
+	padding: 0.4em;
+	border: 1px solid var(--color-grid-border);
+}
+
+table.scrolling td {
+    padding: 4px 6px 4px 6px;
+    border: 1px solid var(--color-grid-border);
+    background-color: inherit;
+    height: 1em;
+}
+
+table.scrolling tr {
+	border: 1px solid var(--color-grid-border);
+}
+
+table.scrolling tr:hover {
+    outline: 4px solid;
+}
+
+table.scrolling-small {
+    display: block;
+    width: max-content;
+    max-height: 300px;
+    overflow-y: scroll;
+    border-collapse: collapse;
+  }
+
+.narrafirma-grid-row-selected-even {
+	background-color: var(--color-grid-selected-even);
+}
+
+.narrafirma-grid-row-selected-odd {
+	background-color: var(--color-grid-selected-odd);
+}
+
+.narrafirma-grid-row-unselected-even {
+	background-color: var(--color-grid-unselected-even);
+}
+  
+.narrafirma-grid-row-unselected-odd { 
+	background-color: var(--color-grid-unselected-odd);
+}
+
+.narrafirma-button-panel {
+    padding: 0.2em;
+    margin-left: 0.9em;
+}
+
+.narrafirma-button-panel button {
+    font-size: 1em;
+    padding: 0.4em;
+    height: 2em;
+    border: none;
+    box-shadow: 1px 1px 1px var(--color-box-shadow);
+    margin-bottom: 0.5em;
+}
+
+.narrafirma-annotation-choice-answers-prompt {
+    margin: 0.5em 0 0 0.5em;
+}
+
+.narrafirma-annotation-choice-answers-answer {
+    margin: 0.25em 0 0 1.5em;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Updating the story form ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+.narrafirma-update-story-form-start {
+    margin: 0.5em 0.5em 1em 0.5em;
+}
+
+.narrafirma-update-story-form-problems {
+    font-size: 0.8em;
+    background-color: var(--color-reminder);
+    border: 1px solid gray;
+    margin: 0.5em;
+    padding: 0.5em;
+    max-height: 12em;
+    overflow-y: scroll;
+}
+
+.narrafirma-update-story-form-snapshot, .narrafirma-update-story-form-current {
+    font-size: 0.8em;
+    background-color: var(--color-reminder);
+    border: 1px solid gray;
+    margin: 0.5em;
+    padding: 0.5em;
+    max-height: 10em;
+    overflow-y: scroll;
+}
+
+.narrafirma-update-story-form-notice {
+    margin: 0.5em 0.5em 1em 0.5em;
+    color: var(--color-error-text);
+}
+
+.narrafirma-update-story-form-problems:empty {
+    display: none;
+}
+
+.narrafirma-update-story-form-end {
+    margin: 0.5em 0.5em 1em 0.5em;
+}
+
+.narrafirma-update-story-form-type-label {
+    margin: 0.5em 0.5em 0.2em 0.5em;
+    font-style: italic;
+}
+
+button.narrafirma-update-story-form-copy-button {
+    font-size: 0.8em;
+    background-color: var(--color-reminder);
+    box-shadow: 1px 1px 1px var(--color-reminder-border);
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Stories list ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+.narrafirma-stories-list table {
+    margin: 10px;
+    display: block;
+    max-height: 400px;
+    overflow-y: scroll;
+    border-collapse: collapse;
+}
+  
+.narrafirma-stories-list th {
+    background-color: var(--color-header);
+    padding: 10px;
+    border: 1px solid var(--color-textbox-border);
+}
+  
+.narrafirma-stories-list td {
+    padding: 6px;
+    background-color: var(--color-table);
+    border: 1px solid var(--color-textbox-border);
+    height: 1em;
+}
+  
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Story browser ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+table.filterTable {
+    width: 90%;
+    margin-left: 1.4em;
+}
+
+table.filterTable td {
+    width: 50%;
+}
+
+.narrafirma-story-browser-filtered-stories-count {
+	margin: 0.5em 0 0 1.4em;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Graph browser ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+.graphBrowserOverallDiv {
+    margin: 0;
+}
+
+.graphBrowserCollectionsIntro {
+    margin: 0.5em 0 0 1em;
+}
+
+.graphBrowserQuestionsIntro {
+    margin: 0.5em 0 0.25em 1em;
+}
+
+.graphBrowserSelect {
+    width: 40%;
+    max-width: 40%
+}
+
+input[type="checkbox"].graphBrowserCheckbox {
+    margin: 0.25em 0 0.25em 1em;
+}
+
+.graphBrowserCheckboxDiv {
+    margin: 0 0 0 0.5em;
+}
+
+.graphBrowserCheckboxesDiv {
+    max-height: 10em;
+    padding: 0.5em;
+    overflow-y: scroll;
+    margin: 0.5em 0.5em 1em 1em;
+    background-color: var(--color-reminder);
+    border: 1px solid var(--color-reminder-border);
+}
+
+.narrafirma-graphbrowser-versus {
+    margin-left: 1em;
+    margin-right: 0;
+}
+
+.narrafirma-graphbrowser-heading {
+	margin: 1em 0 0.5em 0;
+}
+
+.narrafirma-graphbrowser-story-number-and-name {
+    font-weight: bold;
+}
+
+.narrafirma-graphbrowser-story-text {
+    margin: 1em;
+}
+
+.narrafirma-graphbrowser-answers {
+    margin: 0 0 1em 1em;
+    font-size: 0.9em;
+    font-style: italic;
+}
+
+.narrafirma-graphbrowser-showstories-buttons {
+    margin: 0 0.5em 0.25em 0.75em;
+}
+
+.narrafirma-graphbrowser-showstories-buttons label { /* this label looks too far away from its checkbox in this context */
+    margin-left: 0.1em;
+}
+
+.narrafirma-graphbrowser-show-stories-button {
+	margin: 0.5em 0.25em 1em 0;
+}
+
+.narrafirma-graphbrowser-select-stories-tip {
+    margin: 0.5em 0 0.5em 0.75em;
+}
+
+.singleChartStyleWithoutChildren {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.singleChartStyleWithChildren {
+    display: block;
+}
+
+.smallChartStyle {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.mediumChartStyle {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.chartEnclosure {
+    min-height: 200px;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Story card display ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */ 
+
+.storyCard {
+    background-color: var(--color-story-card);
+    padding: 0.5em;
+}
+
+.narrafirma-griditempanel-editing .storyCard {
+    margin-top: 0.6em;
+}
+
+.storyCard table {
+	margin: 0;
+}
+
+.storyCard td {
+	padding: 0 0.5em 0 0;
+}
+
+.storyCard hr {
+	color: gray;
+}
+
+.storyCard br {
+    font-size: 0.8em;
+}
+
+.narrafirma-story-card-story-title {
+    font-size: 1.6em;
+    font-weight: bold;
+    margin: 0.25em 0 0 0;
+}
+
+.narrafirma-story-card-story-text-in-story-browser {
+	margin: 0.5em 0.5em 0.5em 0;
+    padding-bottom: 0.5em;
+    border-bottom: 1px solid gray;
+}
+
+.narrafirma-story-card-story-text-in-story-annotation-browser {
+    margin: 0.5em 0.5em 0.5em 0;
+    padding-bottom: 0.5em;
+    border-bottom: 1px solid gray;
+}
+
+.narrafirma-story-card-question-line-with-selected-item {
+    padding-top: 0.15em; /* leave extra room for bold items */
+}
+
+.narrafirma-story-card-question-line-without-selected-item {
+    padding-top: 0.3em;
+}
+
+.narrafirma-story-card-question-line-basic {
+    padding-top: 0.3em;
+}
+
+.narrafirma-story-card-question-line-with-slider {
+    padding-top: 0.3em;
+}
+
+.narrafirma-story-card-eliciting-question, 
+    .narrafirma-story-card-story-length-question, 
+    .narrafirma-story-card-num-stories-question, 
+    .narrafirma-story-card-language-question,
+    .narrafirma-story-card-collection-date-question {
+    font-size: 1em;
+    padding-top: 0.3em;
+}
+
+.narrafirma-story-card-sliders-table {
+    padding-left: 1.5em;
+}
+
+table.narrafirma-story-card-one-slider-table {
+    margin: 0;
+    border-collapse: collapse;
+}
+
+td.narrafirma-story-card-one-slider-table {
+    padding: 0;
+}
+
+.narrafirma-story-card-question {
+	margin: 0 0 0.25em 0;
+}
+
+.narrafirma-story-card-field-name {
+    font-size: 1em;
+}
+
+.narrafirma-story-card-eliciting-question-name {
+    font-size: 1em;
+}
+
+.narrafirma-story-card-select-selected, .narrafirma-story-card-checkboxes-selected, .narrafirma-story-card-radiobuttons-selected {
+    font-size: 1.25em;
+    font-weight: bold; 
+}
+
+.narrafirma-story-card-write-in-answer {
+    margin-left: 1em;
+    font-size: 1em;
+    font-style: italic;
+}
+
+.narrafirma-story-card-select-unselected, .narrafirma-story-card-checkboxes-unselected, .narrafirma-story-card-radiobuttons-unselected {
+    font-size: 0.75em;
+}
+
+.narrafirma-story-card-select-visible, .narrafirma-story-card-checkboxes-visible, .narrafirma-story-card-radiobuttons-visible {
+    font-size: 1em;
+    font-weight: normal; 
+}
+
+.narrafirma-story-card-slider-name {
+    font-size: 1em;
+}
+
+.narrafirma-story-card-slider-label-left {
+    font-size: 0.85em;
+    text-align: right;
+}
+
+.narrafirma-story-card-slider-label-right {
+    font-size: 0.85em;
+    text-align: left;
+}
+
+.narrafirma-story-card-slider-contents {
+    padding: 1em;
+}
+
+.narrafirma-story-card-slider-button {
+    font-size: 1em;
+}
+
+.narrafirma-story-card-slider-bars-before {
+    font-size: 1em;
+}
+
+.narrafirma-story-card-slider-bars-after {
+    font-size: 1em;
+}
+
+.narrafirma-story-card-slider-bars-no-answer {
+    font-size: 1em;
+}
+
+.narrafirma-story-card-annotation {
+    font-size: 1em;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Story card printing ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+
+.storyCardForPrinting {
+    page-break-after: always;
+}
+
+.storyCardFilterWarning {
+    border-bottom: 1px solid black;
+    font-style: italic;
+}
+
+@media print { 
+   .storyCardForPrinting hr {
+       display: none;
+   }
+}
+
+.narrafirma-story-card-story-number {
+    margin: 0.5em 0 0 0;
+    text-align: right;
+    font-size: 1.1em;
+}
+
+.narrafirma-story-card-story-text-in-printed-story-cards {
+	margin: 0.5em 0 0.5em 0;
+    padding: 0 0 0.5em 0;
+    border-bottom: 1px solid gray;
+}
+
+table.narrafirma-story-card-for-printing-table {
+    margin: 0;
+    border-spacing: 1em;
+}
+
+tr.narrafirma-story-card-for-printing-table {
+    margin: 0;
+}
+
+td.narrafirma-story-card-for-printing-table {
+    border: 1px solid gray;
+    vertical-align: top;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Recommendations table ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+.recommendationsTable {
+    border-collapse: collapse;
+    max-height: 600px;
+}
+
+.narrafirma-recommendations-table .questionPrompt{
+    padding-left: 0;
+}
+ 
+.recommendationsTable th, .recommendationsTable td {
+	border: 1px solid black;
+	text-align: left;
+	padding: 0.2em 0.2em 0.2em 0.3em;
+}
+
+.narrafirma-dialog-launching-button {
+    margin-bottom: 0.5em;
+    padding: 0.4em;
+}
+
+.wwsRecommendationsTable-valueCell {
+	font-weight: normal;
+}
+
+.wwsRecommendationsTable-labelCell {
+  font-weight: normal;
+}
+
+.recommendationHigh {
+    background-color: var(--color-recommendation-high);
+}
+
+.recommendationMedium {
+    background-color: var(--color-recommendation-medium);
+}
+
+.recommendationLow {
+    background-color: var(--color-recommendation-low);
+}
+
+.recommendationNo {
+    background-color: var(--color-recommendation-no);
+    color: white;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Printing agendas and presentations ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+.narrafirma-session-timestamp {
+    text-align: right;
+    font-size: 0.8em;
+}
+
+.narrafirma-session-name {
+    font-size: 2em;
+    font-weight: bold;
+    margin-bottom: 0.5em;
+}
+
+.narrafirma-session-line {
+    display: block;
+    padding-bottom: 0.1em;
+}
+
+.narrafirma-session-item-name {
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.narrafirma-session-item-value {
+    font-weight: normal;
+}
+
+.narrafirma-presentation-line {
+    display: block;
+}
+
+.narrafirma-session-activities-intro {
+    font-size: 1.2em;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 0.25em;
+    margin-top: 0.5em;
+}
+
+.narrafirma-session-activity-frame {
+    display: block;
+    border: 1px solid black;
+    padding: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+.narrafirma-session-activity-name {
+    font-size: 1.5em;
+    margin-bottom: 0.25em;
+    margin-top: 0.5em;
+}
+
+
+.narrafirma-presentation-element-name {
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+.narrafirma-presentation-item-name {
+    font-weight: bold;
+}
+
+.narrafirma-presentation-item-value {
+    font-weight: normal;
+}
+
+.narrafirma-presentation-timestamp {
+    text-align: right;
+    font-size: 0.8em;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Explore patterns page ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+.patterns-grid-header {
+    margin-left: 1em;
+    margin-top: 1em;
+}
+
+.narrafirma-explore-patterns-page-section {
+    font-size: 1.3em;
+}
+
+#gridHeaderProgressMessage {
+    color: var(--color-warning-text); 
+    font-weight: bold;
+}
+
+.pleaseWaitStatisticsOverlay {
+	font-size: 1em;
+	text-align: center;
+	width: 30%;
+	margin: 1.5em auto 0 2em;
+	padding: 0.5em;
+    border: 2px solid var(--color-header-border);
+    background-color: var(--color-table);
+    background-position: 50% 80%;
+    z-index: 1001;
+}
+
+.narrafirma-statistics-cancel-button {
+    margin: 0.5em 0 1.5em 2em;
+    padding: 0.25em 0.5em;
+}
+
+.narrafirma-pattern-browser-no-graph-message {
+    margin: 0 auto 0 2em;
+    padding: 1em;
+    width: 40%;
+    background-color: var(--color-notice);
+    border-radius: 2px;
+    border: 1px solid var(--color-notice-border); 
+}
+
+.narrafirma-pattern-browser-selected-stories-header {
+    margin-left: 1.4em;
+    margin-top: 0.4em;
+}
+
+.narrafirma-pattern-browser-no-selection-tip {
+    margin: 0.5em 0 0.5em 0.7em;
+}
+
+.narrafirma-pattern-browser-exportbuttons {
+    display: block;
+    font-size: 0.8em;
+    margin: 0 0.5em 0 0.3em;
+    padding-left: 0.5em;
+    text-align: right;
+}
+
+button.narrafirma-pattern-browser-export {
+    display: inline-block;
+}
+
+.narrafirma-choose-pattern {
+    margin: 1em auto 2em auto;
+    text-align: center;
+}
+
+.narrafirma-tabs-header {
+    font-size: 1em;
+    float: right;
+    margin-right: 1.2em;
+}
+
+.narrafirma-tab-button {
+    cursor: pointer; 
+    background-color: var(--color-button); 
+    border-radius: 4px;
+    border: 1px solid var(--color-button-border);
+}
+
+.narrafirma-tab-button:hover {
+    background-color: var(--color-button-hover);
+}
+
+.narrafirma-tab-button-selected { 
+    cursor: pointer;
+    font-weight: bold;
+    background-color: var(--color-button-selected);
+    border-radius: 4px;
+    border: 1px solid var(--color-button-border);
+  }
+
+.narrafirma-tab-button-selected:hover {
+    background-color: var(--color-button-selected-hover); 
+}
+
+.narrafirma-questions-chooser-table, .narrafirma-graph-types-chooser-table {
+    width: 95%;
+    margin-left: 0.5em;
+    margin-top: 0.5em;
+    border-collapse: collapse;
+}
+
+fieldset input[type='checkbox'], input[type='radio'] {
+    margin: 0.3em 0 0 0.3em;
+}
+
+input[type="checkbox"] {
+    margin: 1.2em 0.3em 0.3em 0.3em;
+}
+
+label {
+    margin-left: 0.3em;
+}
+
+.narrafirma-questions-chooser-table-td, .narrafirma-graph-types-chooser-table-td {
+    vertical-align: top;
+    border: 1px dashed var(--color-icon-table-border);
+    padding: 8px;
+}
+
+.narrafirma-catalysis-patterns-grid-label {
+    margin: 0, 0, 0.1em, 0;
+}
+
+.narrafirma-choose-catalysis-report {
+    text-align: center;
+    margin: 2em auto 2em auto;
+}
+
+.narrafirma-choose-questions-to-include {
+    margin: 0.5em 0 0.5em 0.5em;
+}
+
+.narrafirma-choose-graph-types-to-include {
+    margin: 0.5em 0 0.5em 0.5em;
+}
+
+.narrafirma-mark-pattern-button {
+    margin-left: 0.1em;
+    margin-right: 0.1em;
+}
+
+.narrafirma-mark-pattern-text {
+    display: inline-block;
+    vertical-align: bottom;
+    margin: 0 0.75em 0.5em 0.75em;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Clustering page ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+.clustering {
+    margin-left: 0.75em;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Catalysis report ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+.narrafirma-statistics-panel-header {
+	margin: 0.5em 0 0.5em 0;
+	font-weight: bold;
+}
+
+.narrafirma-statistics-panel {
+    background-color: inherit;
+    font-size: 0.9em;
+    font-weight: normal;
+} 
+
+h6.narrafirma-statistics-panel-small {
+    font-weight: normal;
+    display: block;
+}
+
+.statistics-name, .statistics-value, .narrafirma-mann-whitney-title {
+    font-weight: normal;
+}
+
+.narrafirma-statistics-panel-small {
+    background-color: inherit;
+    font-size: 0.9em;
+    width: max-content;
+    margin: auto;
+}
+
+table.narrafirma-mw-all-results {
+    margin: 0.5em;
+    font-weight: normal;
+    border-collapse: collapse;
+    display: block;
+    max-height: 300px;
+    overflow-y: scroll;
+    max-width: 800px;
+    overflow-x: scroll;
+}
+
+td.narrafirma-mw-nested-title, td.narrafirma-mw-nested-stats {
+    font-weight: normal;
+    border: 1px solid var(--color-table-border);
+    padding: 0.25em;
+}
+
+.narrafirma-catalysis-report-title {
+	font-size: 2.5em;
+	font-weight: 700;
+    padding: 0.5em;
+    background: var(--color-header);
+    margin: 0;
+}
+
+.narrafirma-catalysis-report-project-name-and-date {
+    padding: 0.5em;
+    font-size: 0.8em;
+    background-color: var(--color-catreport-name-and-date);
+}
+
+.narrafirma-catalysis-report-filter-warning {
+    padding: 0.5em;
+    font-size: 0.8em;
+    font-weight: 700;
+    background-color: var(--color-editing);
+}
+
+.narrafirma-catalysis-report-intro-note {
+	margin: 1em 0 1em 0;
+}
+
+.narrafirma-catalysis-report-about {
+    padding: 0.5em;
+    margin: 0.5em 0 0.5em 0;
+    background-color: var(--color-catreport-about);
+    border: 1px solid var(--color-catreport-about-border);
+}
+
+.narrafirma-catalysis-report-about:empty { /* don't show box if nothing there */
+    display: none;
+}
+
+.narrafirma-catalysis-report-conclusion {
+    font-size: 1em;
+}
+
+.narrafirma-catalysis-report-toc-link-header, .narrafirma-catalysis-report-perspective-link-header, .narrafirma-catalysis-report-observation-link-header {
+	margin-bottom: 0.5em;
+}
+
+.narrafirma-catalysis-report-toc-link, .narrafirma-catalysis-report-perspective-link, narrafirma-catalysis-report-observation-link {
+	margin: 0 0 0 1em;
+}
+
+.narrafirma-catalysis-report-perspective {
+	font-size: 2em;
+	font-weight: 700;
+    padding: 0.5em;
+    background-color: var(--color-catreport-perspective);
+    margin: 0.5em 0 0 0;
+}
+
+.narrafirma-catalysis-report-perspective-label {
+    font-size: 1em;
+}
+
+.narrafirma-catalysis-report-perspective-notes {
+    padding: 0.5em;
+    background-color: var(--color-catreport-perspective-notes);
+    margin-bottom: 0.5em;
+}
+
+.narrafirma-catalysis-report-theme-link-header {
+	margin: 0.5em;
+}
+
+.narrafirma-catalysis-report-theme-link {
+	margin: 0 0 0 1em;
+}
+
+.narrafirma-catalysis-report-theme {
+	font-size: 2em;
+	font-weight: 700;
+    padding: 0.5em;
+    background-color: var(--color-catreport-theme);
+    margin: 0.5em 0 0 0;
+}
+
+.narrafirma-catalysis-report-theme-label {
+    font-size: 1em;
+}
+
+.narrafirma-catalysis-report-theme-notes {
+    padding: 0.5em;
+    background-color: var(--color-catreport-theme-notes);
+    margin-bottom: 0.5em;
+}
+
+.narrafirma-catalysis-report-interp-link-header {
+	margin-bottom: 0.5em;
+}
+
+.narrafirma-catalysis-report-interpretation {
+    padding: 0.5em;
+	font-size: 1.5em;
+	font-weight: 700;
+    background-color: var(--color-catreport-interpretation);
+    margin: 0;
+}
+
+.narrafirma-catalysis-report-interpretation-label {
+    font-size: 1em;
+}
+
+.narrafirma-catalysis-report-interpretation-notes {
+    font-size: 1em;
+	padding: 0.5em;
+    background-color: var(--color-catreport-interpretation-notes);
+}
+
+.narrafirma-catalysis-report-interpretation-idea {
+    font-size: 1em;
+	padding: 0.5em;
+    background-color: var(--color-catreport-interpretation-idea);
+}
+
+.narrafirma-catalysis-report-interpretation-idea-label {
+    font-size: 1em;
+}
+
+.narrafirma-catalysis-report-interpretation-questions {
+    padding: 0.5em;
+    background-color: var(--color-catreport-interpretation-question);
+}
+
+.narrafirma-catalysis-report-interpretation-questions-label {
+    font-size: 1em;
+}
+
+.narrafirma-catalysis-report-observation {
+	font-size: 1.0em;
+    font-weight: 700;
+    padding: 0.5em;
+    background-color: var(--color-catreport-observation);
+    margin-top: 0.5em;
+    margin-bottom: 0;
+}
+
+.narrafirma-catalysis-report-graph {
+    font-size: 1em;
+}
+
+.narrafirma-catalysis-report-observation-label {
+    font-size: 1em;
+}
+
+.narrafirma-catalysis-report-observation-strength {
+    font-size: 0.8em;
+    color: var(--color-catreport-observation-strength-text);
+    margin-left: 2em;
+}
+
+.narrafirma-catalysis-report-interpretation-links-table {
+    border: 1px solid var(--color-catreport-observation-border);
+    border-collapse: collapse;
+}
+
+.narrafirma-catalysis-report-interpretation-links-table-td {
+    border: 1px solid var(--color-catreport-observation-border);
+    padding: 0.2em 1em 0.2em 0.5em;
+}
+
+.narrafirma-catalysis-report-observation-description {
+    padding: 0.5em;
+    margin-bottom: 0.5em;
+    background-color: var(--color-catreport-observation-description);
+}
+
+.narrafirma-catalysis-report-observation-linking-question-by-theme {
+    padding: 0.5em;
+    font-style: italic;
+    background-color: var(--color-catreport-observation-linking-question-by-theme);
+    margin-left: 0.25em;
+    margin-right: 0.25em;
+}
+
+.narrafirma-catalysis-report-observation-linking-question-by-perspective {
+    padding: 0.5em;
+    font-style: italic;
+    background-color: var(--color-catreport-observation-linking-question-by-perspective);
+}
+
+.narrafirma-catalysis-report-list-table {
+    width: 100%;
+    height: 100%;
+}
+
+.narrafirma-catalysis-report-list-table td {
+    height: 100%;
+}
+
+.narrafirma-catalysis-report-list-table-td-div {
+    height: 100%;
+    overflow: auto;
+}
+
+.narrafirma-catalysis-report-observations-only-page-break {
+    page-break-after: always;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ d3 charting ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+/* common to all graphs */
+
+.narrafirma-graph-thumbnail-checked {
+    margin: 0.25em 0 0 2em;
+    height: 64px;
+    border: 2px solid black;
+}
+
+.narrafirma-graph-thumbnail-unchecked {
+    margin: 0.25em 0 0 2em;
+    height: 64px;
+    border: none;
+}
+
+.narrafirma-graph-title {
+    margin: 0.5em;
+    font-size: 1.2em;
+    font-variant-caps: small-caps;
+}
+
+.narrafirma-graph-results-pane {
+    margin: 5px auto 0px 4em;
+}
+
+.chartBackground {
+	width: 700px;
+    fill: none;
+}
+
+.chartBodyBackground {
+    fill: none;
+}
+
+.contingencyChart.chartBodyBackground {
+    fill: none;
+    stroke: black;
+    stroke-width: 0.5px;
+}
+
+.chart {
+    background-color: white;
+}
+
+.x-axis {
+	fill: none;
+	stroke: gray;
+	stroke-width: 1px;
+	shape-rendering: crispEdges;	
+}
+
+.y-axis {
+	fill: none;
+	stroke:gray;
+	stroke-width: 1px;
+	shape-rendering: crispEdges;	
+}
+
+.x-axis text {
+	fill: black;
+	stroke-width: 0.5px;
+	font-family: sans-serif;
+	font-size: 0.9em;
+}
+
+.y-axis text {
+	fill: black;
+	stroke-width: 0.5px;
+	font-family: sans-serif;
+	font-size: 0.9em;
+}
+
+.x-axis-label {
+	fill: black;
+	stroke-width: 0.5px;
+	font-family: sans-serif;
+    font-size: 0.8em;
+}
+
+.y-axis-label {
+	fill: black;
+	stroke-width: 0.5px;
+	font-family: sans-serif;
+    font-size: 0.8em;
+}
+
+.brush .extent {
+    fill-opacity: 0.3;
+    fill: lightgray;
+    stroke: darkslategray;
+    stroke-width: 1px;
+    shape-rendering: auto; /* was crispEdges; auto turns on anti-aliasing */
+  }
+  
+/* bar chart */
+
+.barChart-bar {
+  fill: none;
+}
+
+.barChart-barLabel {
+    fill: black;
+    font-size: 0.9em;
+}
+
+.barChart-story.even {
+    fill: var(--color-graph-barchart-even);
+}
+
+.barChart-story.odd {
+    fill: var(--color-graph-barchart-odd);
+}
+
+.barChart-story.even.selected {
+    fill: var(--color-graph-barchart-even-selected);
+}
+
+.barChart-story.odd.selected {
+    fill: var(--color-graph-barchart-odd-selected);
+}
+  
+.barChart.x-axis-label {
+    font-size: 1.2em;
+}
+
+.barChart.y-axis-label {
+    font-size: 1em;
+}
+
+/* histogram */
+
+.histogram-bar {
+    fill: none;
+}
+
+.histogram-barLabel {
+    fill: black;
+    font-size: 0.9em;
+}
+
+.histogram-barLabelSmall {
+    fill: black;
+    font-size: 0.7em;    
+}
+
+.histogram-story.even {
+    fill: var(--color-graph-histogram-even);
+}
+
+.histogram-story.even.selected {
+    fill: var(--color-graph-histogram-even-selected);
+}
+
+.histogram-story.odd {
+    fill: var(--color-graph-histogram-odd);
+}
+
+.histogram-story.odd.selected {
+    fill: var(--color-graph-histogram-odd-selected);
+}
+
+.histogram-mean {
+	stroke: var(--color-graph-histogram-mean);
+	stroke-width: 2px;
+}
+
+.histogram-standard-deviation-low {
+	stroke: var(--color-graph-histogram-standard-deviation-low);
+	stroke-width: 1.5px;
+}
+
+.histogram-standard-deviation-high {
+	stroke: var(--color-graph-histogram-standard-deviation-high);	
+	stroke-width: 1.5px;
+}
+
+.histogram.x-axis-label.middle, .histogram.y-axis-label.middle {
+    font-size: 1.1em;
+}
+
+.histogram.x-axis-label.small.middle {
+    font-size: 0.9em;
+}
+
+.histogram.x-axis-label.start, .histogram.x-axis-label.end {
+    font-size: 0.9em;
+}
+
+/* contingency chart */
+
+.contingencyChart-circle-observed {
+    stroke-width: 1px;
+    stroke: var(--color-graph-contingency-observed-border);
+    fill: var(--color-graph-contingency-observed);
+}
+
+.contingencyChart-circle-observed.selected {
+    stroke-width: 2px;
+    stroke: var(--color-graph-contingency-observed-selected-border);
+    fill: var(--color-graph-contingency-observed-selected);
+}
+
+.contingencyChart-circle-expected {
+    stroke-width: 1px;
+    stroke: var(--color-graph-contingency-expected-border);
+    stroke-dasharray: "5, 5";
+    fill: var(--color-graph-contingency-expected);
+}
+
+.contingencyChart-circle-label {
+    font-size: 0.8em;
+    fill: var(--color-graph-contingency-expected-text);
+}
+
+.contingencyChart-miniHistogram {
+    fill: var(--color-graph-contingency-minihistogram);
+    stroke: var(--color-graph-contingency-minihistogram-border);
+    stroke-width: 1px;
+}
+
+.contingencyChart-miniHistogram.selected {
+    fill: var(--color-graph-contingency-minihistogram-selected);
+    stroke: var(--color-graph-contingency-minihistogram-border);
+    stroke-width: 1px;
+}
+
+.contingencyChart-miniHistogram-mean {
+    fill: var(--color-graph-contingency-minihistogram-mean);
+    stroke: none;
+}
+
+.contingencyChart-miniHistogram-stdDev {
+    fill: var(--color-graph-contingency-minihistogram-stddev); 
+    stroke: var(--color-graph-contingency-minihistogram-border);
+    stroke-width: 1px;
+}
+
+.contingencyChart .axis path {
+    display: none;
+}
+
+.contingencyChart .axis line {
+    shape-rendering: crispEdges;
+    stroke: var(--color-graph-contingency-minihistogram-axis);
+}
+
+.table.x-axis-label.middle, .table.y-axis-label.middle {
+    font-size: 1.1em;
+}
+
+.table.x-axis-label.upper-corner, .table.y-axis-label.upper-corner {
+    font-size: 1.1em;
+}
+
+/* scatter plot */
+
+.scatterPlot-story {
+    fill: var(--color-graph-scatter-story);
+    fill-opacity: 0.7;
+    stroke: var(--color-graph-scatter-story-border);
+    stroke-width: 0.2px;
+}
+  
+.scatterPlot-story.selected {
+    fill: var(--color-graph-scatter-story-selected);
+    stroke: var(--color-graph-scatter-story-selected-border);
+}
+  
+.scatterplot.x-axis-label.middle, .scatterplot.y-axis-label.middle {
+    font-size: 1.1em;
+}
+
+.scatterplot.x-axis-label.small.middle, .scatterplot.y-axis-label.small.middle {
+    font-size: 0.9em;
+}
+
+.scatterplot.x-axis-label.start, .scatterplot.y-axis-label.start, .scatterplot.x-axis-label.end, .scatterplot.y-axis-label.end {
+    font-size: 0.9em;
+}
+
+/* correlation map */
+
+.narrafirma-correlation-map-frame {
+    stroke: var(--color-graph-corrmap-frame-border);
+    fill: none;
+    stroke-width: 1px;
+}
+
+.narrafirma-correlation-map-node-count {
+    fill: var(--color-graph-corrmap-node-actual);
+    stroke: var(--color-graph-corrmap-node-actual-border);
+    stroke-width: 2px;
+}
+
+.narrafirma-correlation-map-node-count-selected {
+    fill: var(--color-graph-corrmap-node-actual-selected);
+}
+
+.narrafirma-correlation-map-node-max {
+    fill: var(--color-graph-corrmap-node-max);
+    stroke: var(--color-graph-corrmap-node-max-border);
+    stroke-width: 1.5px;
+}
+
+.narrafirma-correlation-map-node-max-selected {
+    fill: var(--color-graph-corrmap-node-max-selected);
+}
+
+.narrafirma-correlation-map-node-label {
+    font-size: 1em;
+}
+
+.narrafirma-correlation-map-node-scale-ends-label {
+    font-size: 0.8em;
+}
+
+.narrafirma-correlation-map-link {
+    stroke: var(--color-graph-corrmap-link); 
+}
+
+.narrafirma-correlation-map-link-selected {
+    stroke: var(--color-graph-corrmap-link-selected); 
+}
+
+.narrafirma-correlation-map-option-title {
+    margin: 0.5em 0 1.5em 0.5em;
+    font-size: 1em;
+    font-variant-caps: small-caps;
+    font-weight: bold;
+}
+
+.narrafirma-correlation-map-stats-table {
+    font-weight: normal;
+    border-collapse: collapse;
+    margin: auto;
+}
+
+.narrafirma-correlation-map-stats-table td {
+    border: 1px solid var(--color-graph-corrmap-border); 
+    padding: 0.25em;
+    text-align: right;
+}
+
+.narrafirma-correlation-map-popup-graph-div {
+    position: absolute;
+    font-size: 0.9em;
+    background-color: var(--color-graph-corrmap);
+    opacity: 0.9;
+    border: 2px solid var(--color-graph-corrmap-border);
+    box-shadow: 2px 2px var(--color-graph-corrmap-border);
+}
+
+.narrafirma-correlation-map-popup-graph-pane {
+    background-color: var(--color-graph-corrmap);
+}
+
+.narrafirma-correlation-map-thumbnail {
+    display: block;
+    background-color: var(--color-graph-corrmap);
+    margin: auto;
+}
+
+.narrafirma-correlation-map-thumbnail-histogram-bar {
+    fill: none;
+}
+
+.narrafirma-correlation-map-thumbnail-histogram-story.even {
+    fill: var(--color-graph-histogram-even);
+}
+
+.narrafirma-correlation-map-thumbnail-histogram-story.odd {
+    fill: var(--color-graph-histogram-odd);
+}
+
+.narrafirma-correlation-map-thumbnail-scatterPlot-story {
+    stroke: var(--color-graph-scatter-story);
+    stroke-width: 0.2px;
+    fill: var(--color-graph-scatter-story);
+    fill-opacity: 0.7;   
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Dialogs ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+/* derived from http://www.cssscript.com/minimal-modal-window-with-plain-javascript/ */
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-dialog-overlay);
+  z-index: 10000;
+}
+
+.modal-content {
+    position: relative;
+    overflow: auto;
+    z-index: 10001;
+    margin: 5% auto 0;
+    padding: 1em 1em;
+    width: 60%;
+    min-width: 300px;
+    max-width: 80%;
+    min-height: 100px;
+    max-height: 80%;
+    background-color: var(--color-dialog); 
+    border: 1px groove var(--color-dialog-border);
+    border-radius: 3px;
+}
+
+.modal-content.wide {
+  max-width: 95%;
+}
+
+.modal-internal {
+    margin: 0.5em;
+    padding: 0.5em;
+    overflow: auto;
+    max-height: 85%;
+    background-color: var(--color-dialog-internal); 
+    border: 1px solid var(--color-dialog-internal-border);
+}
+
+.modal-button-panel {
+    text-align: center;
+}
+
+.narrafirma-dialog-ok-button {
+    display: inline-block;
+    margin: 0.25em;
+    padding: 0.4em;
+    box-shadow: none;
+}
+
+.narrafirma-dialog-cancel-button {
+    display: inline-block;
+    margin: 0.25em;
+    padding: 0.4em;
+    box-shadow: none;
+}
+
+textarea.textEditorInDialog {
+    min-height: 350px;
+    resize: none;
+    margin: none;
+    border: none;
+    width: 100%;
+    height: 100%; 
+    box-sizing: border-box;         /* For IE and modern versions of Chrome */
+    -moz-box-sizing: border-box;    /* For Firefox                          */
+    -webkit-box-sizing: border-box; /* For Safari  */
+}
+
+textarea.textEditorInDialog:read-only {
+    color: var(--color-text-disabled);
+}
+
+.narrafirma-create-collection-name-prompt {
+    margin: 0 0 0.5em 0;
+}
+
+.narrafirma-create-collection-form-prompt {
+    margin: 0.5em 0 0.5em 0;
+}  
+
+.narrafirma-create-collection-input-name-div {
+    margin: 0 0 0.5em 0;
+}
+.narrafirma-create-collection-input-name {
+    margin: 0 0 0.5em 0;
+    border: 1px solid black;
+}
+
+.narrafirma-create-collection-choose-form {
+    margin: 0 0 0.5em 0;
+}
+
+.narrafirma-create-collection-choose-form-label {
+    margin: 0 0.5em 0.5em 0;
+}
+
+.narrafirma-create-collection-choose-form-select{
+    margin: 0 0 0.5em 0;
+    border: 1px solid black;
+}
+
+.narrafirma-create-collection-warning {
+    margin: 1em;
+    color: var(--color-read-only-warning);
+}
